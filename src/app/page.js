@@ -22,8 +22,8 @@ export default function Home() {
 
 
 
-        <video
-          src="https://64.media.tumblr.com/b1aab6376f891a07adbb12f2a95afedb/tumblr_pfmx8u08sf1xhotgvo1_500.gifv"
+        <img
+          src="6229584f-8f0a-4c8c-aaea-64854c5624a3.gif"
           autoPlay
           loop
           muted
