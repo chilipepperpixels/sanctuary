@@ -46,11 +46,11 @@ export async function GET(request) {
       `${hiscoreUrl}?player=${encodeURIComponent(username)}`
     );
   } catch {
-    return Response.json({ error: "Could not load OSRS stats" }, { status: 500 });
+    return Response.json({ username, accountType, error: true, stats: [] });
   }
 
   if (!res.ok) {
-    return Response.json({ error: "Could not load OSRS stats" }, { status: 500 });
+    return Response.json({ username, accountType, error: true, stats: [] });
   }
 
   const text = await res.text();
