@@ -22,7 +22,18 @@ export default function Home() {
 
 
 
-      <img src="https://64.media.tumblr.com/b1aab6376f891a07adbb12f2a95afedb/tumblr_pfmx8u08sf1xhotgvo1_500.gifv" alt="Animated mystical sanctuary scene with glowing purple and pink symbols and the words Pepper's Sanctuary, conveying a welcoming and magical atmosphere" style={{ width: "100%", borderRadius: "10px", marginBottom: "20px" }} />
+        <video
+          src="https://64.media.tumblr.com/b1aab6376f891a07adbb12f2a95afedb/tumblr_pfmx8u08sf1xhotgvo1_500.gifv"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            width: "100%",
+            borderRadius: "10px",
+            marginBottom: "20px",
+          }}
+        />
         <section style={{ marginBottom: "60px" }}>
           <h1>Welcome to my digital lair</h1>
           <p>Projects, experiments, and OSRS knowledge dumps collected in one place.</p>
