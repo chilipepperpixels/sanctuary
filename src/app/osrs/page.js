@@ -3,17 +3,73 @@ import Link from "next/link";
 const MAIN_USERNAME = "Bowosette";
 const IRONMAN_USERNAME = "Ironsette";
 
+const SKILLS = [
+  "Overall",
+  "Attack",
+  "Defence",
+  "Strength",
+  "Hitpoints",
+  "Ranged",
+  "Prayer",
+  "Magic",
+  "Cooking",
+  "Woodcutting",
+  "Fletching",
+  "Fishing",
+  "Firemaking",
+  "Crafting",
+  "Smithing",
+  "Mining",
+  "Herblore",
+  "Agility",
+  "Thieving",
+  "Slayer",
+  "Farming",
+  "Runecraft",
+  "Hunter",
+  "Construction",
+  "Sailing",
+];
+
+const HISCORE_URLS = {
+  normal: "https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws",
+  ironman: "https://secure.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws",
+};
+
 async function getOsrsStats(username, type = "normal") {
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+  const hiscoreUrl = HISCORE_URLS[type] || HISCORE_URLS.normal;
 
-  const res = await fetch(
-    `${baseUrl}/api/osrs?username=${encodeURIComponent(username)}&type=${type}`,
-    { cache: "no-store" }
-  );
+  try {
+    const res = await fetch(
+      `${hiscoreUrl}?player=${encodeURIComponent(username)}`,
+      { cache: "no-store" }
+    );
 
-    return res.json();
+    if (!res.ok) {
+      throw new Error("Hiscores request failed");
+    }
+
+    const text = await res.text();
+    const stats = text
+      .trim()
+      .split("\n")
+      .slice(0, SKILLS.length)
+      .map((line, index) => {
+        const [rank, level, xp] = line.split(",");
+
+        return {
+          name: SKILLS[index],
+          rank: Number(rank),
+          level: Number(level),
+          xp: Number(xp),
+        };
+      });
+
+    return { username, accountType: type, stats };
+  } catch {
+    return { username, accountType: type, error: true, stats: [] };
+  }
+
 }
 
 function OsrsPanel({ data, title, combatLevel }) {
