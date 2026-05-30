@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: var(--background);
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.osrs-panel {
+  width: 360px;
+  background: #151515;
+  border: 3px solid #202020;
+  color: #d8d8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.osrs-panels {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.osrs-search {
+  display: grid;
+  grid-template-columns: 26px 1fr 12px;
+  align-items: center;
+  height: 34px;
+  padding: 0 8px;
+  background: #1f1f1f;
+  border-bottom: 8px solid #151515;
+  color: #f0f0f0;
+}
+
+.osrs-search-icon {
+  color: #777;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.osrs-close {
+  color: #e02a2a;
+  text-align: right;
+}
+
+.osrs-error {
+  min-height: 120px;
+  padding: 12px;
+  background: #202020;
+  color: #d8d8d8;
+}
+
+.osrs-overall,
+.osrs-skill,
+.osrs-footer-stats>div {
+  background: #202020;
+}
+
+.osrs-overall {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+
+.osrs-overall span:last-child {
+  grid-column: 1 / -1;
+  color: #999;
+}
+
+.osrs-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 0 0 10px;
+}
+
+.osrs-skill {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 6px;
+  min-height: 42px;
+  padding: 7px 8px;
+}
+
+.osrs-skill-name {
+  color: #a9a9a9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.osrs-skill strong {
+  color: #f2f2f2;
+}
+
+.osrs-skill-rank {
+  grid-column: 1 / -1;
+  color: #777;
+  font-size: 10px;
+}
+
+.osrs-footer-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 8px solid #151515;
+}
+
+.osrs-footer-stats>div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+.osrs-footer-stats span {
+  color: #999;
+}
