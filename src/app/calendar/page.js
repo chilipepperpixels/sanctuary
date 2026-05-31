@@ -29,7 +29,7 @@ export default function Calendar() {
                     ></iframe>
                 </main>
                 <section style={{ marginBottom: "60px" }}>
-                    <h1>Other Important Documents</h1>
+                    <p>Other Important Documents</p>
                     <p><a href="https://forms.gle/BfgANq49tsSfVYsM8" target="_blank" rel="noopener noreferrer">Absence Form</a></p>
                     <p><a href="https://forms.gle/uZoUZGKY6osi3Gpc6" target="_blank" rel="noopener noreferrer">Consumable Request Form</a></p>
 
