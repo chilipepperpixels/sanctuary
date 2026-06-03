@@ -126,6 +126,29 @@ export default function Projects() {
               >
                 <img src="/GitHub_Invertocat_White.png" alt="GitHub" />
               </a>
+              <span className="discord-widget-trigger">
+                <a
+                  href="https://discord.gg/2t8u4UHanz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/Discord-Symbol-Blurple.png"
+                    alt="Support Discord Server"
+                  />
+                </a>
+                <span className="discord-widget-popover">
+                  <iframe
+                    src="https://discord.com/widget?id=1511547007918018721&theme=dark"
+                    width="350"
+                    height="500"
+                    allowTransparency="true"
+                    frameBorder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                    title="Discord server widget"
+                  ></iframe>
+                </span>
+              </span>
             </div>
 
             <div className="section">

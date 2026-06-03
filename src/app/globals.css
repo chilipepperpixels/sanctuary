@@ -246,6 +246,48 @@ body {
   object-fit: contain;
 }
 
+.discord-widget-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.discord-widget-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  z-index: 20;
+  width: min(350px, calc(100vw - 40px));
+  max-height: min(500px, 70vh);
+  overflow: hidden;
+  border: 1px solid #2f3136;
+  border-radius: 8px;
+  background: #111214;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.discord-widget-popover iframe {
+  display: block;
+  width: 100%;
+  height: min(500px, 70vh);
+}
+
+.discord-widget-trigger:hover .discord-widget-popover,
+.discord-widget-trigger:focus .discord-widget-popover,
+.discord-widget-trigger:focus-within .discord-widget-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 .role {
   display: inline-block;
   margin: 8px 6px 0 0;
