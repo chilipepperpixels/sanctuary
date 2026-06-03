@@ -267,9 +267,10 @@ html {
 
 .path-character img {
   align-self: end;
-  width: min(142%, 680px);
-  max-width: none;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 340px;
+  height: min(78vw, 340px);
   object-fit: contain;
   transform: translateX(0);
   filter: drop-shadow(0 0 16px rgba(37, 215, 255, 0.32))
@@ -281,8 +282,14 @@ html {
 }
 
 .path-character-left img {
-  width: min(120%, 330px);
+  width: auto;
+  height: min(78vw, 340px);
   transform: translateX(8px);
+}
+
+.path-character-right img {
+  width: auto;
+  height: min(78vw, 340px);
 }
 
 .path-character-right {
@@ -913,13 +920,15 @@ h3 {
   }
 
   .path-character-left img {
-    width: min(76%, 300px);
+    width: auto;
+    height: min(70vw, 300px);
     transform: translateX(0);
   }
 
   .path-character-right img {
-    width: min(145%, 520px);
-    transform: translateX(-24px);
+    width: auto;
+    height: min(70vw, 300px);
+    transform: translateX(0);
   }
 }
 
