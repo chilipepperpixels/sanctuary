@@ -40,35 +40,46 @@ export default function Projects() {
 
       <main className="page-shell">
         <div className="project-card">
-          <img
-            src="/ChatGPT Image Jun 3, 2026, 02_27_30 PM.png"
-            alt="Google Form to Discord"
-          />
-
-          <h2>Google Form - Discord Notifications</h2>
-
-          <p>
-            Automatically sends Google Form submissions to Discord through a
-            webhook. Designed for communities, guilds, staff teams, and
-            attendance tracking, with rich embeds, retry handling, and zero
-            manual intervention.
-          </p>
-
-          <div className="tags">
-            <span>JavaScript</span>
-            <span>Google Apps Script</span>
-            <span>Discord Webhooks</span>
-            <span>Automation</span>
+          <div className="project-card-media">
+            <img
+              src="/ChatGPT Image Jun 3, 2026, 02_27_30 PM.png"
+              alt="Google Form to Discord"
+            />
           </div>
 
-          <div className="project-links">
-            <a
-              href="https://github.com/chilipepperpixels/google-form-to-discord"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
+          <div className="project-card-body">
+            <p className="project-eyebrow">Automation project</p>
+            <h2>Google Form - Discord Notifications</h2>
+
+            <p>
+              Automatically sends Google Form submissions to Discord through a
+              webhook. Designed for communities, guilds, staff teams, and
+              attendance tracking, with rich embeds, retry handling, and zero
+              manual intervention.
+            </p>
+
+            <div className="project-highlights">
+              <span>Live form alerts</span>
+              <span>Rich Discord embeds</span>
+              <span>Zero manual copy-paste</span>
+            </div>
+
+            <div className="tags">
+              <span>JavaScript</span>
+              <span>Google Apps Script</span>
+              <span>Discord Webhooks</span>
+              <span>Automation</span>
+            </div>
+
+            <div className="project-links">
+              <a
+                href="https://github.com/chilipepperpixels/google-form-to-discord"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
           </div>
         </div>
 
@@ -91,7 +102,14 @@ export default function Projects() {
 
             <p className="subline">Dealersette · Gamba Bot#5455</p>
 
-            <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1511360890476302386&permissions=68608&integration_type=0&scope=bot" target="_blank">+ Add App</a>
+            <a
+              className="invite-btn"
+              href="https://discord.com/oauth2/authorize?client_id=1511360890476302386&permissions=68608&integration_type=0&scope=bot"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              + Add App
+            </a>
 
             <div className="links">
               <a
