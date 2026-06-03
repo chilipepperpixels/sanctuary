@@ -33,6 +33,18 @@ export default function Home() {
             marginBottom: "20px",
           }}
         />
+        <div className="page-shell">
+        <img
+          src="download.gif"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            borderRadius: "10px",
+            marginBottom: "20px",
+          }}
+        />
         <section style={{ marginBottom: "60px" }}>
           <h1>Welcome to my digital lair</h1>
           <p>
