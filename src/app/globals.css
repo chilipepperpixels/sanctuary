@@ -62,15 +62,14 @@ body {
 .project-card {
   display: grid;
   gap: 16px;
-  max-width: 720px;
+  width: min(100%, 560px);
+  margin: 0 auto;
 }
 
 .project-card img {
   width: 100%;
-  max-width: 420px;
   height: auto;
   border-radius: 8px;
-  justify-self: center;
 }
 
 .tags {
