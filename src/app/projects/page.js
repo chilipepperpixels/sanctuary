@@ -124,7 +124,7 @@ export default function Projects() {
               <div className="project-card bot-project-card">
                 <div className="project-card-media">
                   <img
-                    src="/dealersette-discord-bot.png"
+                    src="/cd7c23c8-cc06-4b8f-8da9-f77e5d161907.png"
                     alt="Dealersette bot to Discord"
                   />
                 </div>

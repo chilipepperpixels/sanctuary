@@ -20,7 +20,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
 }
 
 html {
@@ -223,7 +223,7 @@ html {
 
 .discord-card {
   width: min(100%, 560px);
-  margin: 18px auto 0;
+  margin: 10px auto 0;
   overflow: visible;
   border: 1px solid #2f3136;
   border-radius: 8px;
@@ -445,7 +445,7 @@ h3 {
   background: #151515;
   border: 3px solid #202020;
   color: #d8d8d8;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
   font-size: 12px;
 }
 
@@ -641,7 +641,7 @@ h3 {
   color: white;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
 }
 
 .bot-icon {
