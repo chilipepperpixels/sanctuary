@@ -42,33 +42,16 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(
-      circle at 12% 8%,
-      rgba(255, 43, 214, 0.34),
-      transparent 24rem
+      circle at 72% 30%,
+      rgba(37, 215, 255, 0.16),
+      transparent 16rem
     ),
     radial-gradient(
-      circle at 86% 10%,
-      rgba(37, 215, 255, 0.32),
-      transparent 25rem
+      circle at 28% 20%,
+      rgba(255, 43, 214, 0.2),
+      transparent 14rem
     ),
-    radial-gradient(
-      circle at 68% 72%,
-      rgba(155, 92, 255, 0.3),
-      transparent 30rem
-    ),
-    radial-gradient(
-      circle at 18% 88%,
-      rgba(37, 215, 255, 0.2),
-      transparent 28rem
-    ),
-    linear-gradient(
-      135deg,
-      #05030a 0%,
-      #15072f 24%,
-      #071a32 48%,
-      #24052b 72%,
-      #030207 100%
-    );
+    linear-gradient(135deg, rgba(12, 6, 28, 0.9), rgba(3, 3, 14, 0.96));
   background-repeat: no-repeat;
   background-size: cover;
 }
