@@ -244,29 +244,13 @@ html {
   min-width: 0;
 }
 
-.path-label {
-  position: relative;
-  z-index: 2;
-  justify-self: center;
-  margin-bottom: -28px;
-  padding: 8px 18px;
-  border: 1px solid rgba(37, 215, 255, 0.38);
-  border-radius: 999px;
-  background: rgba(5, 3, 10, 0.84);
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: var(--glow-blue);
-  box-shadow: var(--glow-blue);
-}
-
 .path-character img {
   align-self: end;
-  width: min(100%, 430px);
+  width: min(178%, 780px);
+  max-width: none;
   height: auto;
   object-fit: contain;
+  transform: translateX(-92px);
   filter: drop-shadow(0 0 16px rgba(37, 215, 255, 0.32))
     drop-shadow(0 0 28px rgba(255, 43, 214, 0.24));
 }
@@ -878,7 +862,8 @@ h3 {
   }
 
   .path-character img {
-    width: min(100%, 340px);
+    width: min(165%, 560px);
+    transform: translateX(-58px);
   }
 }
 

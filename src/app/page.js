@@ -45,9 +45,8 @@ export default function Home() {
           </div>
 
           <div className="path-character">
-            <div className="path-label">Projects</div>
             <img
-              src="download-background-removed.gif"
+              src="download-background-removed-cropped.gif"
               alt="2B animated character"
             />
           </div>
