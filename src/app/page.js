@@ -31,6 +31,13 @@ export default function Home() {
 
       <div className="page-shell">
         <section className="home-path-hero" aria-labelledby="home-path-title">
+          <div className="path-character path-character-left">
+            <img
+              src="2b-standing-bg-removed-flipped.gif"
+              alt="2B standing character"
+            />
+          </div>
+
           <div className="path-panel">
             <p className="path-kicker">Choose your path</p>
             <h1 id="home-path-title">Projects</h1>
@@ -44,7 +51,7 @@ export default function Home() {
             </nav>
           </div>
 
-          <div className="path-character">
+          <div className="path-character path-character-right">
             <img
               src="download-background-removed-cropped.gif"
               alt="2B animated character"

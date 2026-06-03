@@ -151,10 +151,13 @@ html {
 .home-path-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(220px, 0.82fr) minmax(240px, 1fr);
+  grid-template-columns: minmax(150px, 0.58fr) minmax(220px, 0.74fr) minmax(
+      240px,
+      1fr
+    );
   justify-content: center;
   align-items: end;
-  gap: clamp(18px, 4vw, 42px);
+  gap: clamp(14px, 3vw, 34px);
   width: 100vw;
   min-height: 390px;
   margin: -20px calc(50% - 50vw) 60px;
@@ -258,7 +261,6 @@ html {
   position: relative;
   z-index: 1;
   display: grid;
-  justify-items: end;
   align-self: stretch;
   min-width: 0;
 }
@@ -272,6 +274,19 @@ html {
   transform: translateX(0);
   filter: drop-shadow(0 0 16px rgba(37, 215, 255, 0.32))
     drop-shadow(0 0 28px rgba(255, 43, 214, 0.24));
+}
+
+.path-character-left {
+  justify-items: start;
+}
+
+.path-character-left img {
+  width: min(120%, 330px);
+  transform: translateX(8px);
+}
+
+.path-character-right {
+  justify-items: end;
 }
 
 .calendar-frame {
@@ -883,15 +898,26 @@ h3 {
     padding: 24px 16px;
   }
 
+  .path-character-left {
+    order: 1;
+    justify-items: center;
+  }
+
   .path-panel {
     order: 2;
   }
 
-  .path-character {
-    order: 1;
+  .path-character-right {
+    order: 3;
+    justify-items: center;
   }
 
-  .path-character img {
+  .path-character-left img {
+    width: min(76%, 300px);
+    transform: translateX(0);
+  }
+
+  .path-character-right img {
     width: min(145%, 520px);
     transform: translateX(-24px);
   }
