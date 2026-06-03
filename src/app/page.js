@@ -33,7 +33,6 @@ export default function Home() {
             marginBottom: "20px",
           }}
         />
-        <div className="page-shell">
         <img
           src="download.gif"
           autoPlay
