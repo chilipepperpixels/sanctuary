@@ -40,7 +40,7 @@ export default function Projects() {
       <main className="page-shell">
         <div className="project-card">
           <img
-            src="images/google-form-discord.png"
+            src="/ChatGPT Image Jun 3, 2026, 02_27_30 PM.png"
             alt="Google Form to Discord"
           />
 
@@ -61,7 +61,11 @@ export default function Projects() {
           </div>
 
           <div className="project-links">
-            <a href="https://github.com/chilipepperpixels/google-form-to-discord" target="_blank">
+            <a
+              href="https://github.com/chilipepperpixels/google-form-to-discord"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
           </div>
