@@ -17,18 +17,77 @@
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   background: var(--background);
-  padding: 20px;
+  padding: 16px clamp(16px, 4vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.page-shell {
+  width: min(100% - 32px, 1000px);
+  margin: 0 auto 20px;
+  padding: 20px 0;
+}
+
+.calendar-frame {
+  width: 100%;
+  height: min(70vh, 600px);
+  border: 1px solid #777;
+}
+
+.project-card {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -96,7 +155,7 @@ h3 {
 
 .osrs-overall,
 .osrs-skill,
-.osrs-footer-stats>div {
+.osrs-footer-stats > div {
   background: #202020;
 }
 
@@ -154,7 +213,7 @@ h3 {
   border-top: 8px solid #151515;
 }
 
-.osrs-footer-stats>div {
+.osrs-footer-stats > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -164,4 +223,34 @@ h3 {
 
 .osrs-footer-stats span {
   color: #999;
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  .navbar {
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    width: 100%;
+  }
+
+  .calendar-frame {
+    height: 520px;
+  }
+
+  .osrs-panel {
+    width: 100%;
+  }
+
+  .osrs-skill-grid {
+    grid-template-columns: 1fr;
+  }
 }

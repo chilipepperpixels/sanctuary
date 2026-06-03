@@ -3,31 +3,70 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Projects() {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    return (
-        <><nav className="navbar" style={{ display: "flex", justifyContent: "space-between", marginBottom: "40px" }}>
-            <h2>⚔️ Pepper's Sanctuary</h2>
-            <div style={{ display: "flex", gap: "15px" }}>
-                <Link href="/" style={{ color: pathname === "/" ? "#f41ee9" : "inherit" }}>Home</Link>
-                <Link href="/projects" style={{ color: pathname === "/projects" ? "#f41ee9" : "inherit" }}>Projects</Link>
-                <Link href="/osrs" style={{ color: pathname === "/osrs" ? "#f41ee9" : "inherit" }}>OSRS Stats</Link>
-                <Link href="/calendar" style={{ color: pathname === "/calendar" ? "#f41ee9" : "inherit" }}>Calendar</Link>
-            </div>
-        </nav>
+  return (
+    <>
+      <nav className="navbar">
+        <h2>⚔️ Pepper's Sanctuary</h2>
+        <div className="navbar-links">
+          <Link
+            href="/"
+            style={{ color: pathname === "/" ? "#f41ee9" : "inherit" }}
+          >
+            Home
+          </Link>
+          <Link
+            href="/projects"
+            style={{ color: pathname === "/projects" ? "#f41ee9" : "inherit" }}
+          >
+            Projects
+          </Link>
+          <Link
+            href="/osrs"
+            style={{ color: pathname === "/osrs" ? "#f41ee9" : "inherit" }}
+          >
+            OSRS Stats
+          </Link>
+          <Link
+            href="/calendar"
+            style={{ color: pathname === "/calendar" ? "#f41ee9" : "inherit" }}
+          >
+            Calendar
+          </Link>
+        </div>
+      </nav>
 
-            <div style={{ fontFamily: "Arial", maxWidth: "100%", margin: "0 500px 20px", padding: "20px" }}>
+      <main className="page-shell">
+        <div className="project-card">
+          <img
+            src="images/google-form-discord.png"
+            alt="Google Form to Discord"
+          />
 
-                <section>
-                    <h1>Github Projects</h1>
+          <h2>Google Form → Discord Notifications</h2>
 
-                    <a href="https://github.com/chilipepperpixels" target="_blank">
-                        <img
-                            src="https://githubcard.com/chilipepperpixels.svg?d=LFvFX7uM&theme=github-light"
-                            alt="GitHub profile card for chilipepperpixels"
-                            style={{ maxWidth: "100%", height: "auto" }} />
-                    </a>
-                </section>
-            </div></>
-    );
+          <p>
+            Automatically sends Google Form submissions to Discord through a
+            webhook. Designed for communities, guilds, staff teams, and
+            attendance tracking, with rich embeds, retry handling, and zero
+            manual intervention.
+          </p>
+
+          <div className="tags">
+            <span>JavaScript</span>
+            <span>Google Apps Script</span>
+            <span>Discord Webhooks</span>
+            <span>Automation</span>
+          </div>
+
+          <div className="project-links">
+            <a href="https://github.com/chilipepperpixels/google-form-to-discord">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </main>
+    </>
+  );
 }

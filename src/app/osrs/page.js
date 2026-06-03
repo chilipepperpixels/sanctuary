@@ -15,7 +15,7 @@ const EMPTY_PANEL = {
 async function loadOsrsStats(username, type = "normal") {
   const res = await fetch(
     `/api/osrs?username=${encodeURIComponent(username)}&type=${type}`,
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
 
   if (!res.ok) {
@@ -38,9 +38,13 @@ function OsrsPanel({ data, title, combatLevel }) {
         <span className="osrs-close"></span>
       </div>
 
-      {data.loading && <div className="osrs-error">Loading {title} stats...</div>}
+      {data.loading && (
+        <div className="osrs-error">Loading {title} stats...</div>
+      )}
 
-      {data.error && <div className="osrs-error">Could not load {title} stats.</div>}
+      {data.error && (
+        <div className="osrs-error">Could not load {title} stats.</div>
+      )}
 
       {!data.loading && !data.error && overall && (
         <>
@@ -55,7 +59,9 @@ function OsrsPanel({ data, title, combatLevel }) {
               <div className="osrs-skill" key={skill.name}>
                 <span className="osrs-skill-name">{skill.name}</span>
                 <strong>{skill.level.toLocaleString()}</strong>
-                <span className="osrs-skill-rank">#{skill.rank.toLocaleString()}</span>
+                <span className="osrs-skill-rank">
+                  #{skill.rank.toLocaleString()}
+                </span>
               </div>
             ))}
           </div>
@@ -94,7 +100,7 @@ export default function Osrs() {
           username: MAIN_USERNAME,
           error: true,
           stats: [],
-        })
+        }),
       );
 
     loadOsrsStats(IRONMAN_USERNAME, "ironman")
@@ -104,23 +110,25 @@ export default function Osrs() {
           username: IRONMAN_USERNAME,
           error: true,
           stats: [],
-        })
+        }),
       );
   }, []);
 
   return (
     <>
-      <nav className="navbar" style={{ display: "flex", justifyContent: "space-between", marginBottom: "40px" }}>
+      <nav className="navbar">
         <h2>Pepper's Sanctuary</h2>
-        <div style={{ display: "flex", gap: "15px" }}>
+        <div className="navbar-links">
           <Link href="/">Home</Link>
           <Link href="/projects">Projects</Link>
-          <Link href="/osrs" style={{ color: "#f41ee9" }}>OSRS Stats</Link>
+          <Link href="/osrs" style={{ color: "#f41ee9" }}>
+            OSRS Stats
+          </Link>
           <Link href="/calendar">Calendar</Link>
         </div>
       </nav>
 
-      <div style={{ fontFamily: "Arial", maxWidth: "100%", margin: "0 0 20px 500px", padding: "20px" }}>
+      <div className="page-shell">
         <main>
           <h1>OSRS Stats</h1>
 

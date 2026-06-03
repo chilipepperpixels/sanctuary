@@ -5,23 +5,23 @@ export default function Home() {
   const pathname = usePathname();
 
   return (
-    <><nav className="navbar" style={{ display: "flex", justifyContent: "space-between", marginBottom: "40px" }}>
-      <h2>⚔️ Pepper's Sanctuary</h2>
-      <div style={{ display: "flex", gap: "15px" }}>
-        <Link href="/" style={{ color: pathname === "/" ? "#f41ee9" : "inherit" }}>Home</Link>
-        <Link href="/projects">Projects</Link>
-        <Link href="/osrs">OSRS Stats</Link>
-        <Link href="/calendar">Calendar</Link>
-      </div>
-    </nav>
+    <>
+      <nav className="navbar">
+        <h2>⚔️ Pepper's Sanctuary</h2>
+        <div className="navbar-links">
+          <Link
+            href="/"
+            style={{ color: pathname === "/" ? "#f41ee9" : "inherit" }}
+          >
+            Home
+          </Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/osrs">OSRS Stats</Link>
+          <Link href="/calendar">Calendar</Link>
+        </div>
+      </nav>
 
-
-
-      <div style={{ fontFamily: "Arial", maxWidth: "100%", margin: "0 500px 20px", padding: "20px" }}>
-
-
-
-
+      <div className="page-shell">
         <img
           src="6229584f-8f0a-4c8c-aaea-64854c5624a3.gif"
           autoPlay
@@ -36,9 +36,11 @@ export default function Home() {
         />
         <section style={{ marginBottom: "60px" }}>
           <h1>Welcome to my digital lair</h1>
-          <p>Projects, experiments, and OSRS knowledge dumps collected in one place.</p>
+          <p>
+            Projects, experiments, and OSRS knowledge dumps collected in one
+            place.
+          </p>
         </section>
-
 
         <section id="projects" style={{ marginBottom: "60px" }}>
           <h2>🧪 Projects</h2>
@@ -49,7 +51,6 @@ export default function Home() {
           </ul>
         </section>
 
-
         <section id="osrs" style={{ marginBottom: "60px" }}>
           <h2>📜 OSRS Guides</h2>
           <ul>
@@ -59,14 +60,13 @@ export default function Home() {
           </ul>
         </section>
 
-
         <section id="about" style={{ marginBottom: "60px" }}>
           <h2>🧠 About</h2>
           <p>
-            This is my personal hub for dev projects and RuneScape knowledge dumping.
+            This is my personal hub for dev projects and RuneScape knowledge
+            dumping.
           </p>
         </section>
-
 
         <footer style={{ marginTop: "80px", opacity: 0.7 }}>
           <p>Built with questionable decisions and too much caffeine.</p>
@@ -74,17 +74,13 @@ export default function Home() {
 
         <main>
           <h1>Drumroll Calendar</h1>
-          <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBudapest&showPrint=0&src=MTI4NGE0MjM3MzY5NjM0NDg2YTJhNjFlNWE5NDU0MjUyZWFiNDUyZDIwMTY0MjVmMWVhNDdjM2EwZjMyOGU5ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=aHVuZ2FyaWFuX25hbWVkYXlzX19odUBob2xpZGF5LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e&color=%237cb342"
-            style={{
-              border: "1px solid #777",
-              width: "100%", height: "600px"
-            }}
+          <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBudapest&showPrint=0&src=MTI4NGE0MjM3MzY5NjM0NDg2YTJhNjFlNWE5NDU0MjUyZWFiNDUyZDIwMTY0MjVmMWVhNDdjM2EwZjMyOGU5ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=aHVuZ2FyaWFuX25hbWVkYXlzX19odUBob2xpZGF5LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e&color=%237cb342"
+            className="calendar-frame"
             frameBorder="0"
             scrolling="no"
           ></iframe>
         </main>
-
-
       </div>
     </>
   );
