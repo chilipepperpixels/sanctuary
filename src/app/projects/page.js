@@ -135,21 +135,18 @@ export default function Projects() {
 
                   <p>
                     A Discord gamba bot built for server-side game commands, bot
-                    invite flow, support links, and a cleaner app profile
-                    experience for community members.
+                    invite flow and support links. This bot is for MMO communities where gambling away in-game gold is a recurring activity.
                   </p>
 
                   <div className="project-highlights">
                     <span>Discord bot commands</span>
                     <span>Server invite and support flow</span>
-                    <span>Community-first utility panel</span>
                   </div>
 
                   <div className="tags">
                     <span>JavaScript</span>
                     <span>Discord.js</span>
                     <span>Bot Automation</span>
-                    <span>Community Tools</span>
                   </div>
                 </div>
               </div>
@@ -226,6 +223,7 @@ export default function Projects() {
                     <h4>Roles</h4>
                     <span className="role bot-role">Bots</span>
                     <span className="role">Your dream dealer</span>
+                    <span className="role">Big melons</span>
                   </div>
                 </div>
               </div>
