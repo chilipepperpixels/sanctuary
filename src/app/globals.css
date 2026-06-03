@@ -17,6 +17,7 @@
   --line: rgba(155, 92, 255, 0.26);
   --glow-pink: 0 0 18px rgba(255, 43, 214, 0.42);
   --glow-blue: 0 0 22px rgba(37, 215, 255, 0.34);
+  --nav-sticky-clearance: 128px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -287,7 +288,14 @@ html {
 
 .project-toc {
   position: sticky;
-  top: 96px;
+  top: var(--nav-sticky-clearance);
+  z-index: 20;
+  max-height: calc(100vh - var(--nav-sticky-clearance) - 20px);
+  overflow: auto;
+  padding: 12px 0;
+  border-radius: 8px;
+  background: rgba(5, 3, 10, 0.72);
+  backdrop-filter: blur(10px);
 }
 
 .project-toc p {
@@ -331,7 +339,7 @@ html {
 }
 
 .project-section {
-  scroll-margin-top: 150px;
+  scroll-margin-top: calc(var(--nav-sticky-clearance) + 28px);
 }
 
 .project-section + .project-section {
@@ -784,6 +792,10 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --nav-sticky-clearance: 168px;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -822,7 +834,7 @@ h3 {
 
   .project-toc {
     position: sticky;
-    top: 76px;
+    top: var(--nav-sticky-clearance);
     z-index: 10;
     width: min(100%, 560px);
     margin: 0 auto 24px;
