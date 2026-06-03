@@ -268,7 +268,7 @@ html {
 .path-character img {
   align-self: end;
   width: auto;
-  max-width: 100%;
+  max-width: none;
   max-height: 340px;
   height: min(78vw, 340px);
   object-fit: contain;
