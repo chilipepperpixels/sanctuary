@@ -88,8 +88,8 @@ export default function Projects() {
     <button class="invite-btn">＋ Add App</button>
 
     <div class="links">
-      <a href="https://ko-fi.com/chilipepperpixels">https://ko-fi.com/chilipepperpixels</a>
-      <a href="https://github.com/chilipepperpixels">https://github.com/chilipepperpixels</a>
+      <a href="https://ko-fi.com/chilipepperpixels"><img src="/kofi_logo.png"/></a>
+      <a href="https://github.com/chilipepperpixels"><img src="/GitHub_Invertocat_White.png"/></a>
     </div>
 
     <div class="section">
