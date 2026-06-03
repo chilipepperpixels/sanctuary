@@ -91,7 +91,7 @@ export default function Projects() {
 
             <p className="subline">Dealersette · Gamba Bot#5455</p>
 
-            <button className="invite-btn">+ Add App</button>
+            <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1511360890476302386&permissions=68608&integration_type=0&scope=bot" target="_blank">+ Add App</a>
 
             <div className="links">
               <a
@@ -113,12 +113,7 @@ export default function Projects() {
             <div className="section">
               <h4>Roles</h4>
               <span className="role bot-role">Bots</span>
-              <span className="role">Dealersette</span>
-            </div>
-
-            <div className="message-box">
-              Message @Dealersette
-              <span>:)</span>
+              <span className="role">Your dream dealer</span>
             </div>
           </div>
         </div>
