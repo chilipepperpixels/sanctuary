@@ -29,6 +29,17 @@
 
 body {
   margin: 0;
+  background: #05030a;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(
       circle at 18% 12%,
@@ -46,11 +57,12 @@ body {
       transparent 34rem
     ),
     linear-gradient(180deg, #05030a 0%, #070411 45%, #030207 100%);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html {
+  background: #05030a;
   scroll-behavior: smooth;
 }
 
@@ -292,10 +304,6 @@ html {
   z-index: 20;
   max-height: calc(100vh - var(--nav-sticky-clearance) - 20px);
   overflow: auto;
-  padding: 12px 0;
-  border-radius: 8px;
-  background: rgba(5, 3, 10, 0.72);
-  backdrop-filter: blur(10px);
 }
 
 .project-toc p {
