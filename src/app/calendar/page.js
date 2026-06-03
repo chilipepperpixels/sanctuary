@@ -7,7 +7,9 @@ export default function Calendar() {
   return (
     <>
       <nav className="navbar">
-        <h2>⚔️ Pepper's Sanctuary</h2>
+        <Link href="/" className="brand-link">
+          <h2>⚔️ Pepper's Sanctuary</h2>
+        </Link>
         <div className="navbar-links">
           <Link
             href="/"

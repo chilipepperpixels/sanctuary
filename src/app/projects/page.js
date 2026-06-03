@@ -14,7 +14,9 @@ export default function Projects() {
   return (
     <>
       <nav className="navbar">
-        <h2>Pepper&apos;s Sanctuary</h2>
+        <Link href="/" className="brand-link">
+          <h2>Pepper&apos;s Sanctuary</h2>
+        </Link>
         <div className="navbar-links">
           <Link
             href="/"
@@ -135,7 +137,9 @@ export default function Projects() {
 
                   <p>
                     A Discord gamba bot built for server-side game commands, bot
-                    invite flow and support links. This bot is for MMO communities where gambling away in-game gold is a recurring activity.
+                    invite flow and support links. This bot is for MMO
+                    communities where gambling away in-game gold is a recurring
+                    activity.
                   </p>
 
                   <div className="project-highlights">
