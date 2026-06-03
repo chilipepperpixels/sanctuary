@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,7 +9,7 @@ export default function Projects() {
   return (
     <>
       <nav className="navbar">
-        <h2>⚔️ Pepper's Sanctuary</h2>
+        <h2>Pepper&apos;s Sanctuary</h2>
         <div className="navbar-links">
           <Link
             href="/"
@@ -44,7 +45,7 @@ export default function Projects() {
             alt="Google Form to Discord"
           />
 
-          <h2>Google Form → Discord Notifications</h2>
+          <h2>Google Form - Discord Notifications</h2>
 
           <p>
             Automatically sends Google Form submissions to Discord through a
@@ -70,43 +71,57 @@ export default function Projects() {
             </a>
           </div>
         </div>
-        <div class="discord-card">
-  <div class="banner"></div>
 
-  <div class="avatar-wrap">
-    <img src="/e3958c97-804f-4b78-a680-b3a7f13536e9.png" alt="Dealersette avatar" class="avatar"/>
-    <span class="status"></span>
-  </div>
+        <div className="discord-card">
+          <div className="banner"></div>
 
-  <div class="content">
-    <h2>
-      Dealersette <span class="app-badge">APP</span>
-    </h2>
+          <div className="avatar-wrap">
+            <img
+              src="/e3958c97-804f-4b78-a680-b3a7f13536e9.png"
+              alt="Dealersette avatar"
+              className="avatar"
+            />
+            <span className="status"></span>
+          </div>
 
-    <p class="subline">Dealersette · Gamba Bot#5455</p>
+          <div className="content">
+            <h2>
+              Dealersette <span className="app-badge">APP</span>
+            </h2>
 
-    <button class="invite-btn">＋ Add App</button>
+            <p className="subline">Dealersette · Gamba Bot#5455</p>
 
-    <div class="links">
-      <a href="https://ko-fi.com/chilipepperpixels"><img src="/kofi_logo.png"/></a>
-      <a href="https://github.com/chilipepperpixels"><img src="/GitHub_Invertocat_White.png"/></a>
-    </div>
+            <button className="invite-btn">+ Add App</button>
 
-    <div class="section">
-      <h4>Roles</h4>
-      <span class="role bot-role">Bots</span>
-      <span class="role">Dealersette</span>
-    </div>
+            <div className="links">
+              <a
+                href="https://ko-fi.com/chilipepperpixels"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/kofi_logo.png" alt="Ko-fi" />
+              </a>
+              <a
+                href="https://github.com/chilipepperpixels"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/GitHub_Invertocat_White.png" alt="GitHub" />
+              </a>
+            </div>
 
-    <div class="message-box">
-      Message @Dealersette
-      <span>☻</span>
-    </div>
-  </div>
-</div>
+            <div className="section">
+              <h4>Roles</h4>
+              <span className="role bot-role">Bots</span>
+              <span className="role">Dealersette</span>
+            </div>
 
-
-
+            <div className="message-box">
+              Message @Dealersette
+              <span>:)</span>
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );
