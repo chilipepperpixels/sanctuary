@@ -61,11 +61,13 @@ export default function Projects() {
           </div>
 
           <div className="project-links">
-            <a href="https://github.com/chilipepperpixels/google-form-to-discord">
+            <a href="https://github.com/chilipepperpixels/google-form-to-discord" target="_blank">
               GitHub
             </a>
           </div>
         </div>
+
+
       </main>
     </>
   );
