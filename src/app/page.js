@@ -81,7 +81,7 @@ export default function Home() {
         </section>
 
         <footer style={{ marginTop: "80px", opacity: 0.7 }}>
-          <p>Built with questionable decisions and too much caffeine.</p>
+          <p>App Scripts project.</p>
         </footer>
 
         <main>
