@@ -144,6 +144,10 @@ html {
   display: block;
 }
 
+.osrs-shell > main {
+  width: min(100%, 780px);
+}
+
 .home-path-hero {
   position: relative;
   display: grid;
@@ -669,7 +673,7 @@ h3 {
 }
 
 .osrs-panel {
-  width: 360px;
+  width: min(360px, calc((100% - 18px) / 2));
   background: #090712;
   border: 1px solid rgba(155, 92, 255, 0.34);
   color: #f2eaff;
@@ -683,7 +687,7 @@ h3 {
   align-items: flex-start;
   justify-content: center;
   gap: 18px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .osrs-search {
@@ -818,6 +822,10 @@ h3 {
 
   .osrs-panel {
     width: 100%;
+  }
+
+  .osrs-panels {
+    flex-wrap: wrap;
   }
 
   .osrs-skill-grid {

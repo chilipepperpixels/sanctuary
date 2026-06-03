@@ -130,7 +130,7 @@ export default function Osrs() {
         </div>
       </nav>
 
-      <div className="page-shell">
+      <div className="page-shell osrs-shell">
         <main>
           <h1>OSRS Stats</h1>
 
