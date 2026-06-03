@@ -151,6 +151,13 @@ html {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
 }
 
+.bot-project-card {
+  border-color: rgba(129, 140, 248, 0.24);
+  background:
+    linear-gradient(180deg, rgba(22, 18, 54, 0.92), rgba(7, 10, 22, 0.98)),
+    #080a16;
+}
+
 .project-card-media {
   padding: 14px 14px 0;
 }
@@ -216,7 +223,7 @@ html {
 
 .discord-card {
   width: min(100%, 560px);
-  margin: 32px auto 0;
+  margin: 18px auto 0;
   overflow: visible;
   border: 1px solid #2f3136;
   border-radius: 8px;

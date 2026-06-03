@@ -121,6 +121,39 @@ export default function Projects() {
               id="dealersette"
               aria-labelledby="dealersette-title"
             >
+              <div className="project-card bot-project-card">
+                <div className="project-card-media">
+                  <img
+                    src="/dealersette-discord-bot.png"
+                    alt="Dealersette bot to Discord"
+                  />
+                </div>
+
+                <div className="project-card-body">
+                  <p className="project-eyebrow">Discord bot project</p>
+                  <h2 id="dealersette-title">Dealersette</h2>
+
+                  <p>
+                    A Discord gamba bot built for server-side game commands, bot
+                    invite flow, support links, and a cleaner app profile
+                    experience for community members.
+                  </p>
+
+                  <div className="project-highlights">
+                    <span>Discord bot commands</span>
+                    <span>Server invite and support flow</span>
+                    <span>Community-first utility panel</span>
+                  </div>
+
+                  <div className="tags">
+                    <span>JavaScript</span>
+                    <span>Discord.js</span>
+                    <span>Bot Automation</span>
+                    <span>Community Tools</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="discord-card">
                 <div className="banner"></div>
 
@@ -134,7 +167,7 @@ export default function Projects() {
                 </div>
 
                 <div className="content">
-                  <h2 id="dealersette-title">
+                  <h2>
                     Dealersette <span className="app-badge">APP</span>
                   </h2>
 
