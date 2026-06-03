@@ -330,22 +330,13 @@ body {
 
 .project-links {
   display: flex;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.project-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid rgba(103, 232, 249, 0.35);
-  border-radius: 6px;
-  background: #f8fafc;
-  color: #020617;
-  font-weight: 700;
-  text-decoration: none;
+.project-links img {
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.28));
 }
 
 h1 {

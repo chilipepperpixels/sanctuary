@@ -71,13 +71,20 @@ export default function Projects() {
               <span>Automation</span>
             </div>
 
-            <div className="project-links">
+            <div className="links project-links">
+              <a
+                href="https://ko-fi.com/chilipepperpixels"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/kofi_logo.png" alt="Ko-fi" />
+              </a>
               <a
                 href="https://github.com/chilipepperpixels/google-form-to-discord"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View on GitHub
+                <img src="/GitHub_Invertocat_White.png" alt="GitHub" />
               </a>
             </div>
           </div>
