@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <>
       <nav className="navbar">
-        <a href="/" className="brand-link">
-          <h2>⚔️ Pepper's Sanctuary</h2>
-        </a>
+        <Link href="/" className="brand-link">
+          <img src="/2bpepperlogo.png" alt="Pepper's Sanctuary" />
+        </Link>
         <div className="navbar-links">
           <Link
             href="/"

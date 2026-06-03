@@ -93,16 +93,21 @@ html {
 }
 
 .brand-link {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
   color: inherit;
   text-decoration: none;
 }
 
-.brand-link h2 {
-  margin-bottom: 0;
-  color: #fff;
-  text-shadow:
-    0 0 12px rgba(255, 43, 214, 0.5),
-    0 0 28px rgba(37, 215, 255, 0.2);
+.brand-link img {
+  display: block;
+  width: clamp(180px, 28vw, 300px);
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(255, 43, 214, 0.26))
+    drop-shadow(0 0 18px rgba(37, 215, 255, 0.16));
 }
 
 .page-shell {

@@ -15,7 +15,7 @@ export default function Projects() {
     <>
       <nav className="navbar">
         <Link href="/" className="brand-link">
-          <h2>Pepper&apos;s Sanctuary</h2>
+          <img src="/2bpepperlogo.png" alt="Pepper's Sanctuary" />
         </Link>
         <div className="navbar-links">
           <Link
