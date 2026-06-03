@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       <nav className="navbar">
-        <Link href="/" className="brand-link">
+        <a href="/" className="brand-link">
           <h2>⚔️ Pepper's Sanctuary</h2>
-        </Link>
+        </a>
         <div className="navbar-links">
           <Link
             href="/"
