@@ -1,6 +1,12 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const PROJECT_PATHS = [
+  { label: "Google to Discord", href: "/projects#form-to-discord" },
+  { label: "Discord Bot Project", href: "/projects#dealersette" },
+];
+
 export default function Home() {
   const pathname = usePathname();
 
@@ -24,28 +30,29 @@ export default function Home() {
       </nav>
 
       <div className="page-shell">
-        <img
-          src="6229584f-8f0a-4c8c-aaea-64854c5624a3.gif"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            borderRadius: "10px",
-            marginBottom: "20px",
-          }}
-        />
-        <img
-          src="download.gif"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            borderRadius: "10px",
-            marginBottom: "20px",
-          }}
-        />
+        <section className="home-path-hero" aria-labelledby="home-path-title">
+          <div className="path-panel">
+            <p className="path-kicker">Choose your path</p>
+            <h1 id="home-path-title">Projects</h1>
+
+            <nav className="path-menu" aria-label="Featured projects">
+              {PROJECT_PATHS.map((path) => (
+                <Link href={path.href} key={path.href}>
+                  {path.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="path-character">
+            <div className="path-label">Projects</div>
+            <img
+              src="download-background-removed.gif"
+              alt="2B animated character"
+            />
+          </div>
+        </section>
+
         <section style={{ marginBottom: "60px" }}>
           <h1>Welcome to my digital lair</h1>
           <p>
