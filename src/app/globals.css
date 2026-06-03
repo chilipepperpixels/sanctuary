@@ -23,6 +23,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -69,6 +73,48 @@ body {
   width: 100%;
   height: min(70vh, 600px);
   border: 1px solid #777;
+}
+
+.project-page-nav {
+  position: sticky;
+  top: 76px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: min(100%, 560px);
+  margin: 0 auto 24px;
+  padding: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 8px;
+  background: rgba(10, 10, 10, 0.86);
+  backdrop-filter: blur(10px);
+}
+
+.project-page-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.project-page-nav a:hover,
+.project-page-nav a:focus {
+  border-color: #f41ee9;
+  color: #f41ee9;
+}
+
+.project-section {
+  scroll-margin-top: 150px;
+}
+
+.project-section + .project-section {
+  margin-top: 32px;
 }
 
 .project-card {
