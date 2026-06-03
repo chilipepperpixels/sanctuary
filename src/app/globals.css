@@ -42,21 +42,33 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(
-      circle at 18% 12%,
-      rgba(155, 92, 255, 0.22),
+      circle at 12% 8%,
+      rgba(255, 43, 214, 0.34),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(37, 215, 255, 0.32),
+      transparent 25rem
+    ),
+    radial-gradient(
+      circle at 68% 72%,
+      rgba(155, 92, 255, 0.3),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 18% 88%,
+      rgba(37, 215, 255, 0.2),
       transparent 28rem
     ),
-    radial-gradient(
-      circle at 82% 8%,
-      rgba(37, 215, 255, 0.16),
-      transparent 26rem
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(255, 43, 214, 0.13),
-      transparent 34rem
-    ),
-    linear-gradient(180deg, #05030a 0%, #070411 45%, #030207 100%);
+    linear-gradient(
+      135deg,
+      #05030a 0%,
+      #15072f 24%,
+      #071a32 48%,
+      #24052b 72%,
+      #030207 100%
+    );
   background-repeat: no-repeat;
   background-size: cover;
 }
