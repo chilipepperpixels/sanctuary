@@ -70,6 +70,41 @@ export default function Projects() {
             </a>
           </div>
         </div>
+        <div class="discord-card">
+  <div class="banner"></div>
+
+  <div class="avatar-wrap">
+    <img src="/e3958c97-804f-4b78-a680-b3a7f13536e9.png" alt="Dealersette avatar" class="avatar"/>
+    <span class="status"></span>
+  </div>
+
+  <div class="content">
+    <h2>
+      Dealersette <span class="app-badge">APP</span>
+    </h2>
+
+    <p class="subline">Dealersette · Gamba Bot#5455</p>
+
+    <button class="invite-btn">＋ Add App</button>
+
+    <div class="links">
+      <a href="https://ko-fi.com/chilipepperpixels">https://ko-fi.com/chilipepperpixels</a>
+      <a href="https://github.com/chilipepperpixels">https://github.com/chilipepperpixels</a>
+    </div>
+
+    <div class="section">
+      <h4>Roles</h4>
+      <span class="role bot-role">Bots</span>
+      <span class="role">Dealersette</span>
+    </div>
+
+    <div class="message-box">
+      Message @Dealersette
+      <span>☻</span>
+    </div>
+  </div>
+</div>
+
 
 
       </main>

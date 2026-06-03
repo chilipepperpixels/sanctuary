@@ -29,7 +29,6 @@ export default function Home() {
           muted
           playsInline
           style={{
-            width: "100%",
             borderRadius: "10px",
             marginBottom: "20px",
           }}
