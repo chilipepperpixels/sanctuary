@@ -35,6 +35,14 @@ export default function Calendar() {
           >
             Calendar
           </Link>
+          <Link
+            href="/csv%20merger"
+            style={{
+              color: pathname === "/csv merger" ? "#f41ee9" : "inherit",
+            }}
+          >
+            CSV Merger
+          </Link>
         </div>
       </nav>
       <div className="page-shell">
