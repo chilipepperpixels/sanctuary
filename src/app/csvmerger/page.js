@@ -259,97 +259,140 @@ export default function CsvMerger() {
           <Link href="/projects">Projects</Link>
           <Link href="/osrs">OSRS Stats</Link>
           <Link href="/calendar">Calendar</Link>
-          <Link href="/csv%20merger" style={{ color: "#f41ee9" }}>
+          <Link href="/csvmerger" style={{ color: "#f41ee9" }}>
             CSV Merger
           </Link>
         </div>
       </nav>
 
       <div className="page-shell csv-shell">
-        <main>
-          <div className="csv-header">
-            <p className="project-eyebrow">Tools</p>
-            <h1>CSV Merger</h1>
-          </div>
-
-          <section className="csv-panel" aria-label="CSV inputs">
-            <div className="csv-input-grid">
-              {files.map((file, index) => (
-                <div className="csv-input-block" key={index}>
-                  <div className="csv-input-heading">
-                    <h2>File {index + 1}</h2>
-                    {file.fileName && <span>{file.fileName}</span>}
-                  </div>
-
-                  <textarea
-                    value={file.text}
-                    onChange={(event) =>
-                      updateFile(index, { text: event.target.value })
-                    }
-                    placeholder="name,value&#10;Alice,12&#10;Bob,9"
-                    spellCheck="false"
-                  />
-
-                  <label className="csv-upload">
-                    <input
-                      accept=".csv,text/csv"
-                      onChange={(event) => handleUpload(index, event)}
-                      type="file"
-                    />
-                    Upload CSV
-                  </label>
-                </div>
-              ))}
-            </div>
-
-          <div className="csv-controls">
-            <label className="csv-checkbox">
-                <input
-                  checked={deduplicate}
-                  onChange={(event) => setDeduplicate(event.target.checked)}
-                  type="checkbox"
-                />
-                <span>Deduplicate by player + itemID</span>
-              </label>
-
-              <div className="csv-stats">
-                <span>{result.count} rows</span>
-                <span>{result.rows.length ? "Sorted A-Z" : "Waiting"}</span>
-              </div>
-            </div>
-          </section>
-
-          <section className="csv-panel" aria-label="Merged CSV output">
-            <div className="csv-output-heading">
-              <h2>Merged Output</h2>
-              <div className="csv-actions">
-                <button
-                  disabled={!result.output}
-                  onClick={copyOutput}
-                  type="button"
-                >
-                  {copyLabel}
-                </button>
-                <button
-                  disabled={!result.output}
-                  onClick={downloadOutput}
-                  type="button"
-                >
-                  Download
-                </button>
-                <a aria-hidden="true" ref={downloadRef} />
-              </div>
-            </div>
-
-            <textarea
-              className="csv-output"
-              readOnly
-              value={result.output}
-              placeholder="Merged CSV appears here."
-              spellCheck="false"
+        <div className="csv-workspace">
+          <aside className="csv-character" aria-hidden="true">
+            <Image
+              src="/2b-standing-bg-removed-flipped.gif"
+              alt=""
+              width={260}
+              height={360}
+              unoptimized
             />
-          </section>
-        </main>
+          </aside>
+
+          <main>
+            <div className="csv-header">
+              <p className="project-eyebrow">Tools</p>
+              <h1>CSV Merger</h1>
+            </div>
+
+            <section className="csv-panel" aria-label="CSV inputs">
+              <div className="csv-input-grid">
+                {files.map((file, index) => (
+                  <div className="csv-input-block" key={index}>
+                    <div className="csv-input-heading">
+                      <h2>File {index + 1}</h2>
+                      {file.fileName && <span>{file.fileName}</span>}
+                    </div>
+
+                    <textarea
+                      value={file.text}
+                      onChange={(event) =>
+                        updateFile(index, { text: event.target.value })
+                      }
+                      placeholder="dateTime,character,itemID,offspec,id&#10;2026-06-05,Besor,104431,0,123"
+                      spellCheck="false"
+                    />
+
+                    <label className="csv-upload">
+                      <input
+                        accept=".csv,text/csv"
+                        onChange={(event) => handleUpload(index, event)}
+                        type="file"
+                      />
+                      Upload CSV
+                    </label>
+                  </div>
+                ))}
+              </div>
+
+              <div className="csv-controls">
+                <label className="csv-checkbox">
+                  <input
+                    checked={deduplicate}
+                    onChange={(event) => setDeduplicate(event.target.checked)}
+                    type="checkbox"
+                  />
+                  <span>Deduplicate by player + itemID</span>
+                </label>
+
+                <div className="csv-stats">
+                  <span>{result.count} rows</span>
+                  <span>{result.rows.length ? "Sorted A-Z" : "Waiting"}</span>
+                </div>
+              </div>
+            </section>
+
+            <section className="csv-panel" aria-label="Merged CSV output">
+              <div className="csv-output-heading">
+                <h2>Merged Output</h2>
+                <div className="csv-actions">
+                  <button
+                    disabled={!result.output}
+                    onClick={copyOutput}
+                    type="button"
+                  >
+                    {copyLabel}
+                  </button>
+                  <button
+                    disabled={!result.output}
+                    onClick={downloadOutput}
+                    type="button"
+                  >
+                    Download
+                  </button>
+                  <a aria-hidden="true" ref={downloadRef} />
+                </div>
+              </div>
+
+              <textarea
+                className="csv-output"
+                readOnly
+                value={result.output}
+                placeholder="Merged CSV appears here."
+                spellCheck="false"
+              />
+            </section>
+            <section className="csv-info-card" aria-labelledby="csv-info-title">
+              <div className="csv-info-portrait">
+                <Image
+                  src="/ledgerette-csv-tool.png"
+                  alt="Ledgerette, keeper of records"
+                  width={360}
+                  height={360}
+                  priority
+                />
+              </div>
+
+              <div className="csv-info-copy">
+                <p className="project-eyebrow">Drumroll Project</p>
+                <h2 id="csv-info-title">Ledgerette CSV Tool</h2>
+                <p>
+                  This tool was created to help loot management in
+                  Drumroll@GaralonEU. This merger creates a TMB ready CSV file
+                  from RCLootCouncil and Gargul. This is a passion project, not
+                  for commercial use. The program executes specific tasks in
+                  order to make these files readable and usable on
+                  ThatsMyBis.com.
+                </p>
+
+                <div className="csv-info-tags" aria-label="Tool capabilities">
+                  <span>RCLC</span>
+                  <span>Gargul</span>
+                  <span>TMB Ready</span>
+                  <span>Loot Dedupe</span>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
       </div>
     </>
   );

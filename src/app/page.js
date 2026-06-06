@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 const PROJECT_PATHS = [
   { label: "Google to Discord", href: "/projects#form-to-discord" },
   { label: "Discord Bot Project", href: "/projects#dealersette" },
-  { label: "CSV Merger", href: "/csv%20merger" },
+  { label: "CSV Merger", href: "/csvmerger" },
 ];
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
           <Link href="/projects">Projects</Link>
           <Link href="/osrs">OSRS Stats</Link>
           <Link href="/calendar">Calendar</Link>
-          <Link href="/csv%20merger">CSV Merger</Link>
+          <Link href="/csvmerger">CSV Merger</Link>
         </div>
       </nav>
 

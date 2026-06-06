@@ -127,7 +127,7 @@ export default function Osrs() {
             OSRS Stats
           </Link>
           <Link href="/calendar">Calendar</Link>
-          <Link href="/csv%20merger">CSV Merger</Link>
+          <Link href="/csvmerger">CSV Merger</Link>
         </div>
       </nav>
 

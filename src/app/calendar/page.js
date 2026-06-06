@@ -36,9 +36,9 @@ export default function Calendar() {
             Calendar
           </Link>
           <Link
-            href="/csv%20merger"
+            href="/csvmerger"
             style={{
-              color: pathname === "/csv merger" ? "#f41ee9" : "inherit",
+              color: pathname === "/csvmerger" ? "#f41ee9" : "inherit",
             }}
           >
             CSV Merger
