@@ -101,6 +101,8 @@ export default function Home() {
             scrolling="no"
           ></iframe>
         </main>
+
+        <span hidden data-secret="Traps are not gay"></span>
       </div>
     </>
   );
