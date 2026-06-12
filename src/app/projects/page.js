@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const WAGO_LINK = "https://wago.io/wlTg_Zyue";
+const WAGO_REPO_LINK =
+  "https://github.com/chilipepperpixels/Bad-Items-Equipped-WeakAura";
+
 const PROJECT_SECTIONS = [
   { id: "form-to-discord", label: "Form to Discord" },
   { id: "dealersette", label: "Discord Bot" },
@@ -237,6 +241,64 @@ export default function Projects() {
                     <span className="role">Your dream dealer</span>
                     <span className="role">Big melons</span>
                   </div>
+                </div>
+              </div>
+
+              <div className="wago-card">
+                <div className="wago-card-topline">
+                  <a
+                    className="wago-logo-link"
+                    href={WAGO_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Bad Items Equipped on Wago"
+                  >
+                    <img
+                      src="https://media.wago.io/logo/57x57.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+
+                  <div>
+                    <p className="project-eyebrow">WeakAura</p>
+                    <h3>Bad Items Equipped</h3>
+                  </div>
+                </div>
+
+                <p>
+                  WeakAura helper that catches teleport and utility gear when
+                  you zone in, swap items, or join group content, then calls out
+                  the bad item before you raid as a certified bum.
+                </p>
+
+                <div className="tags">
+                  <span>World of Warcraft</span>
+                  <span>WeakAura</span>
+                  <span>Gear Check</span>
+                </div>
+
+                <div className="wago-card-actions">
+                  <a
+                    className="wago-main-link"
+                    href={WAGO_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <small>Open on Wago</small>
+                    <span>Bad Items Equipped</span>
+                  </a>
+
+                  <a
+                    className="wago-github-link"
+                    href={WAGO_REPO_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Bad Items Equipped WeakAura on GitHub"
+                  >
+                    <img src="/GitHub_Invertocat_White.png" alt="" />
+                    <span>GitHub</span>
+                  </a>
                 </div>
               </div>
             </section>

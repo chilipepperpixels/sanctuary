@@ -598,6 +598,138 @@ html {
   transform: translateY(0);
 }
 
+.wago-card {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 560px);
+  margin: 10px auto 0;
+  padding: 18px;
+  border: 1px solid rgba(37, 215, 255, 0.34);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(37, 215, 255, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(18, 8, 35, 0.96), rgba(6, 4, 16, 0.98));
+  box-shadow:
+    0 0 0 1px rgba(255, 43, 214, 0.1),
+    0 0 30px rgba(37, 215, 255, 0.12),
+    0 18px 42px rgba(0, 0, 0, 0.34);
+}
+
+.wago-card-topline {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.wago-logo-link {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(155, 92, 255, 0.38);
+  border-radius: 8px;
+  background: rgba(8, 7, 17, 0.86);
+  box-shadow: inset 0 0 20px rgba(155, 92, 255, 0.12);
+}
+
+.wago-logo-link:hover,
+.wago-logo-link:focus {
+  border-color: rgba(255, 43, 214, 0.64);
+  box-shadow:
+    inset 0 0 20px rgba(155, 92, 255, 0.16),
+    var(--glow-pink);
+}
+
+.wago-logo-link img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.wago-card h3,
+.wago-card p {
+  margin: 0;
+}
+
+.wago-card h3 {
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  text-shadow: 0 0 18px rgba(255, 43, 214, 0.26);
+}
+
+.wago-card p:not(.project-eyebrow) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.wago-card-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.wago-main-link,
+.wago-github-link {
+  min-height: 44px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wago-main-link {
+  display: grid;
+  min-width: min(100%, 220px);
+  padding: 7px 16px;
+  border: 1px solid rgba(255, 43, 214, 0.34);
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  text-align: center;
+  box-shadow: var(--glow-pink);
+}
+
+.wago-main-link:hover,
+.wago-main-link:focus {
+  filter: brightness(1.08);
+}
+
+.wago-main-link small {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.wago-main-link span {
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
+.wago-github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid rgba(37, 215, 255, 0.34);
+  background: rgba(8, 7, 17, 0.78);
+  color: #f2eaff;
+}
+
+.wago-github-link:hover,
+.wago-github-link:focus {
+  border-color: var(--neon-blue);
+  color: white;
+  box-shadow: var(--glow-blue);
+}
+
+.wago-github-link img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .role {
   display: inline-block;
   margin: 8px 6px 0 0;

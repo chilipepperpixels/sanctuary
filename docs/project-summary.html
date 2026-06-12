@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pepper's Sanctuary - Project Summary</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm;
+      }
+
+      :root {
+        --ink: #1d1724;
+        --muted: #665c70;
+        --line: #e1d8ec;
+        --soft: #f7f2fb;
+        --accent: #b014a4;
+        --accent-2: #177f9b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font: 12.5px/1.55 Arial, Helvetica, sans-serif;
+        background: #ffffff;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      ol {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+        font-size: 30px;
+        line-height: 1.1;
+        color: #15101c;
+      }
+
+      h2 {
+        margin: 24px 0 8px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--line);
+        font-size: 18px;
+        color: var(--accent);
+      }
+
+      h3 {
+        margin: 15px 0 6px;
+        font-size: 14px;
+        color: #2c2236;
+      }
+
+      p {
+        margin-bottom: 9px;
+      }
+
+      ul,
+      ol {
+        padding-left: 18px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      code {
+        padding: 1px 4px;
+        border-radius: 4px;
+        background: #f1eaf7;
+        color: #311d3d;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 11.5px;
+      }
+
+      .cover {
+        min-height: 220px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background:
+          linear-gradient(135deg, rgba(176, 20, 164, 0.1), transparent 42%),
+          linear-gradient(145deg, #fbf8ff, #f4edf9);
+      }
+
+      .subtitle {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .meta div,
+      .callout,
+      .function-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--soft);
+      }
+
+      .meta div {
+        padding: 10px;
+      }
+
+      .meta strong {
+        display: block;
+        margin-bottom: 2px;
+        color: #15101c;
+      }
+
+      .callout {
+        margin: 12px 0;
+        padding: 12px 14px;
+      }
+
+      .function-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .function-card {
+        padding: 10px;
+        break-inside: avoid;
+      }
+
+      .function-card h3 {
+        margin-top: 0;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tag-list li {
+        margin: 0;
+        padding: 4px 8px;
+        border: 1px solid #decbe8;
+        border-radius: 999px;
+        background: #fff;
+        color: #4b3f55;
+        font-size: 11px;
+      }
+
+      .page-break {
+        break-before: page;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <h1>Pepper's Sanctuary</h1>
+      <p class="subtitle">
+        A rough-but-useful project summary of the Next.js site we built:
+        what the pages do, which functions and methods power them, why those
+        choices were made, and which parts are human-authored versus the kind
+        of machinery nobody sane writes from scratch for fun.
+      </p>
+
+      <div class="meta">
+        <div>
+          <strong>Project type</strong>
+          Next.js App Router site
+        </div>
+        <div>
+          <strong>Main stack</strong>
+          React, Next.js, CSS, browser APIs
+        </div>
+        <div>
+          <strong>Generated</strong>
+          June 6, 2026
+        </div>
+      </div>
+    </section>
+
+    <h2>Big Picture</h2>
+    <p>
+      The project is a personal hub with several practical pages: a home page,
+      a projects showcase, a Drumroll calendar page, an OSRS stats page, and a
+      CSV merger tool for loot records. It is built with the Next.js App Router,
+      so each page lives in <code>src/app/.../page.js</code>, and the shared
+      site styling lives mostly in <code>src/app/globals.css</code>.
+    </p>
+    <p>
+      The site is not just a static portfolio. Some pages are mostly content and
+      layout, but the OSRS and CSV pages have real application behavior:
+      fetching external data, parsing user files, normalizing inconsistent CSV
+      formats, deduplicating loot rows, copying output, and downloading a new
+      CSV file.
+    </p>
+
+    <h2>Pages We Built</h2>
+    <h3>Home Page</h3>
+    <p>
+      <code>src/app/page.js</code> acts as the front door. It uses
+      <code>Link</code> from Next.js for internal navigation and
+      <code>usePathname()</code> to know which route is active. The
+      <code>PROJECT_PATHS</code> array keeps the featured project links in one
+      tidy data structure, and <code>PROJECT_PATHS.map(...)</code> turns that
+      data into links.
+    </p>
+    <p>
+      The hero section is custom content: the project path chooser, the 2B-style
+      character asset, the neon visual language, and the personal copy. The
+      repeated navigation pattern is typical app code, but the actual structure
+      and visual intent are hand-authored.
+    </p>
+
+    <h3>Projects Page</h3>
+    <p>
+      <code>src/app/projects/page.js</code> is a showcase page. It has a sticky
+      table of contents powered by <code>PROJECT_SECTIONS.map(...)</code>, then
+      two project sections: the Google Form to Discord automation and the
+      Dealersette Discord bot.
+    </p>
+    <p>
+      This page leans on ordinary React composition: arrays for repeated
+      navigation, JSX for content blocks, external links with
+      <code>target="_blank"</code> and <code>rel="noopener noreferrer"</code>,
+      and embedded Discord widget markup. The content, links, labels, roles, and
+      project positioning are the human-authored part.
+    </p>
+
+    <h3>Calendar Page</h3>
+    <p>
+      <code>src/app/calendar/page.js</code> embeds a public Google Calendar
+      iframe and adds links to important Google Forms. The important method here
+      is not complicated code; it is integration by embedding an external
+      service. The iframe keeps calendar management inside Google Calendar while
+      still displaying it on the site.
+    </p>
+
+    <h3>OSRS Stats Page</h3>
+    <p>
+      <code>src/app/osrs/page.js</code> is a client-side React page that loads
+      stats for <code>Bowosette</code> and <code>Ironsette</code>. It uses
+      <code>useState()</code> to track loading, error, and loaded data, then
+      <code>useEffect()</code> to fetch stats after the page mounts.
+    </p>
+    <p>
+      The helper <code>loadOsrsStats(username, type)</code> calls the local API
+      route instead of calling RuneScape directly from the UI. That keeps the UI
+      simpler and gives us one place to handle OSRS response parsing.
+    </p>
+
+    <h3>CSV Merger Page</h3>
+    <p>
+      <code>src/app/csvmerger/page.js</code> is the most application-like part
+      of the site. It accepts three CSV inputs through textareas or file upload,
+      converts several source formats into a TMB-ready schema, optionally
+      deduplicates rows by player plus item ID, sorts the result by player name,
+      and then lets the user copy or download the merged CSV.
+    </p>
+
+    <h2 class="page-break">Main Functions and Why They Exist</h2>
+    <div class="function-grid">
+      <article class="function-card">
+        <h3><code>parseCsv(text)</code></h3>
+        <p>
+          Converts raw CSV text into rows and cells. This is custom because
+          simple <code>split(",")</code> breaks on quoted commas, escaped
+          quotes, and line breaks. The function tracks whether it is inside
+          quotes with <code>inQuotes</code>, handles doubled quotes, and removes
+          empty trailing rows.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>toCsv(rows)</code></h3>
+        <p>
+          Converts arrays back into CSV text. It only wraps values in quotes
+          when needed, and escapes quotes by doubling them. This is the mirror
+          image of parsing: output should be valid CSV, not just strings glued
+          together with commas.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>normalizeHeader(value)</code></h3>
+        <p>
+          Lowercases and trims headers so <code>itemID</code>,
+          <code>ItemID</code>, and stray spaces do not break detection. This is
+          boring but valuable defensive code.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>normalizePlayerName(value)</code></h3>
+        <p>
+          Trims a character name and removes the realm suffix after
+          <code>-</code>. This turns names like <code>Name-Realm</code> into the
+          player name TMB expects.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>getIndex(headers, columnName)</code></h3>
+        <p>
+          Finds a column by normalized name. This avoids hard-coding column
+          positions, which matters because RCLootCouncil, Gargul, and fallback
+          data may not arrange columns the same way.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>getValue(row, index)</code></h3>
+        <p>
+          Safely reads a cell. If the index does not exist, it returns an empty
+          string. That keeps missing optional columns from exploding the whole
+          merge.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>normalizeDate(value)</code></h3>
+        <p>
+          Trims dates and swaps slashes for dashes. This creates a more
+          consistent exported format without trying to fully interpret every
+          possible date style.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>responseToOffspec(value)</code></h3>
+        <p>
+          Converts source text into the TMB offspec flag. If a response includes
+          <code>offspec</code>, it outputs <code>1</code>; otherwise it outputs
+          <code>0</code>.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>normalizeRows(rows)</code></h3>
+        <p>
+          Detects the source CSV shape and converts it into
+          <code>dateTime, character, itemID, offspec, id</code>. This is the
+          heart of the merger because it lets different loot export formats land
+          in one final schema.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>mergeCsvFiles(files, deduplicate)</code></h3>
+        <p>
+          Runs the full pipeline: parse each file, normalize rows, remove bad
+          rows, optionally deduplicate, sort A-Z by player name, add the TMB
+          header, and produce both row data and downloadable CSV text.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>updateFile(index, changes)</code></h3>
+        <p>
+          Updates one of the three file inputs without mutating React state
+          directly. It uses <code>setFiles(...map(...))</code>, which is the
+          normal React-safe way to replace one item inside an array.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>handleUpload(index, event)</code></h3>
+        <p>
+          Reads an uploaded CSV with the browser's <code>File.text()</code>
+          method, then stores both the file text and the file name in state.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>copyOutput()</code></h3>
+        <p>
+          Uses <code>navigator.clipboard.writeText()</code> to copy the merged
+          CSV and briefly changes the button label from Copy to Copied. This is
+          small UI feedback with almost no extra complexity.
+        </p>
+      </article>
+
+      <article class="function-card">
+        <h3><code>downloadOutput()</code></h3>
+        <p>
+          Uses <code>Blob</code>, <code>URL.createObjectURL()</code>, a hidden
+          anchor, and <code>link.click()</code> to download the result as
+          <code>merged.csv</code>. This is browser machinery: useful, but not
+          the sort of thing a human writes for pleasure every Tuesday.
+        </p>
+      </article>
+    </div>
+
+    <h2>OSRS API Route</h2>
+    <p>
+      <code>src/app/api/osrs/route.js</code> defines a server-side
+      <code>GET(request)</code> handler. It reads <code>username</code> and
+      <code>type</code> from the query string, chooses the normal or ironman
+      hiscore endpoint, fetches RuneScape's plain-text hiscore response, and
+      maps the first skill rows into objects with <code>name</code>,
+      <code>rank</code>, <code>level</code>, and <code>xp</code>.
+    </p>
+    <p>
+      The <code>SKILLS</code> array gives meaning to each line of the OSRS
+      response. The RuneScape API returns comma-separated numbers, not friendly
+      objects, so the route turns machine-ish text into data the React page can
+      render directly.
+    </p>
+
+    <h2>React and Browser Methods Used</h2>
+    <ul>
+      <li>
+        <code>useState()</code> stores interactive state: uploaded files,
+        dedupe toggle, copy button label, and OSRS loading/error/data panels.
+      </li>
+      <li>
+        <code>useMemo()</code> recalculates the CSV result only when inputs or
+        dedupe settings change, instead of recomputing on every render for no
+        reason.
+      </li>
+      <li>
+        <code>useRef()</code> keeps a reference to the hidden download anchor.
+      </li>
+      <li>
+        <code>useEffect()</code> loads OSRS stats after the page renders.
+      </li>
+      <li>
+        <code>fetch()</code> talks to the local API route and, on the server,
+        the OSRS hiscore endpoint.
+      </li>
+      <li>
+        <code>map()</code>, <code>filter()</code>, <code>flatMap()</code>, and
+        <code>sort()</code> do most of the array transformation work.
+      </li>
+      <li>
+        <code>Set</code> stores seen loot keys for deduplication.
+      </li>
+      <li>
+        <code>Blob</code>, <code>URL.createObjectURL()</code>, and
+        <code>navigator.clipboard</code> provide browser-native copy/download
+        behavior.
+      </li>
+    </ul>
+
+    <h2>Styling and Design Work</h2>
+    <p>
+      <code>src/app/globals.css</code> carries the visual identity: dark neon
+      background, sticky nav, glowing project cards, OSRS stat panels, Discord
+      card styling, responsive grids, CSV work panels, and mobile layouts. The
+      CSS uses variables like <code>--neon-pink</code>,
+      <code>--neon-purple</code>, <code>--neon-blue</code>, and
+      <code>--nav-sticky-clearance</code> so repeated colors and spacing rules
+      stay consistent.
+    </p>
+    <p>
+      The responsive behavior is mostly handled with CSS grid, flexbox,
+      <code>clamp()</code>, <code>min()</code>, and a mobile media query at
+      <code>640px</code>. The result is a site that can hold both content pages
+      and tool-like pages without each route needing its own completely separate
+      design system.
+    </p>
+
+    <h2 class="page-break">Human-Written vs Generated-ish Work</h2>
+    <h3>Things you would plausibly write manually</h3>
+    <ul>
+      <li>Project names, descriptions, role labels, and page copy.</li>
+      <li>The navigation labels and route choices.</li>
+      <li>The list of featured project links and section IDs.</li>
+      <li>Which assets to use for the brand, character art, Discord card, and CSV tool card.</li>
+      <li>The high-level CSV rules: TMB output headers, dedupe by player plus item, sort by player.</li>
+      <li>The Google Calendar iframe URL and Google Form links.</li>
+    </ul>
+
+    <h3>Things you normally would not write manually from memory</h3>
+    <ul>
+      <li>
+        A quote-aware CSV parser that handles commas, line breaks, and escaped
+        double quotes correctly enough for real input.
+      </li>
+      <li>
+        The browser download sequence using <code>Blob</code>,
+        <code>URL.createObjectURL()</code>, a hidden anchor, and cleanup with
+        <code>URL.revokeObjectURL()</code>.
+      </li>
+      <li>
+        The React state update pattern for replacing one file object without
+        mutating the array.
+      </li>
+      <li>
+        The OSRS hiscore parsing pipeline from plain text lines into named skill
+        objects.
+      </li>
+      <li>
+        The more intricate CSS layout details: sticky table of contents,
+        responsive project layouts, hover popovers, grid-based panels, and
+        mobile-specific layout changes.
+      </li>
+      <li>
+        The repeated security attributes on external links:
+        <code>target="_blank"</code> with
+        <code>rel="noopener noreferrer"</code>.
+      </li>
+    </ul>
+
+    <h2>Why These Choices Make Sense</h2>
+    <ul>
+      <li>
+        Next.js routes keep each page easy to find: home, projects, calendar,
+        OSRS, CSV merger.
+      </li>
+      <li>
+        Client components are used where interaction is needed, especially file
+        upload, copy/download, and OSRS loading state.
+      </li>
+      <li>
+        The OSRS API route keeps external parsing out of the UI and gives the
+        front end a clean JSON response.
+      </li>
+      <li>
+        The CSV merger uses small helper functions instead of one giant blob of
+        logic, making the pipeline easier to debug.
+      </li>
+      <li>
+        CSS variables make the neon identity reusable across routes.
+      </li>
+      <li>
+        Browser APIs are used for local file handling so the CSV merger does not
+        need a database or backend upload step.
+      </li>
+    </ul>
+
+    <h2>Rough Current Structure</h2>
+    <ul class="tag-list">
+      <li><code>src/app/page.js</code> - home page</li>
+      <li><code>src/app/projects/page.js</code> - project showcase</li>
+      <li><code>src/app/calendar/page.js</code> - calendar and forms</li>
+      <li><code>src/app/osrs/page.js</code> - OSRS UI</li>
+      <li><code>src/app/api/osrs/route.js</code> - OSRS proxy/parser API</li>
+      <li><code>src/app/csvmerger/page.js</code> - CSV merger tool</li>
+      <li><code>src/app/globals.css</code> - shared visual system</li>
+      <li><code>public/</code> - logos, characters, icons, project images</li>
+    </ul>
+
+    <div class="callout">
+      <p>
+        Short version: the site began as a personal project hub, then grew into
+        a more useful toolkit. The custom parts are the personality, project
+        content, visuals, loot rules, and page intent. The "please let a machine
+        remember this for me" parts are the browser APIs, CSV edge cases, React
+        state plumbing, and detailed responsive CSS.
+      </p>
+      <p class="small">
+        Summary generated from the current local source files in
+        <code>my-site</code>.
+      </p>
+    </div>
+  </body>
+</html>
