@@ -102,7 +102,7 @@ export default function Home() {
           ></iframe>
         </main>
 
-        <span hidden data-secret="Traps are not gay! nya~"></span>
+        <span hidden data-secret="Traps are not gay! nya~ UwU"></span>
       </div>
     </>
   );
