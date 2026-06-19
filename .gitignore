@@ -25,6 +25,8 @@
 *.pem
 .data/
 docs/secret.txt
+AGENTS.md
+CLAUDE.md
 
 # debug
 npm-debug.log*
