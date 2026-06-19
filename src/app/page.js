@@ -71,14 +71,6 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="osrs" style={{ marginBottom: "60px" }}>
-          <h2>📜 OSRS Guides</h2>
-          <ul>
-            <li>Early Ironman progression path</li>
-            <li>Money making methods (no scams included)</li>
-            <li>Boss mechanics breakdowns</li>
-          </ul>
-        </section>
 
         <section id="about" style={{ marginBottom: "60px" }}>
           <h2>🧠 About</h2>
