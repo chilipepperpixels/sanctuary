@@ -191,6 +191,8 @@ export default function CsvMerger() {
   const [files, setFiles] = useState(EMPTY_FILES);
   const [deduplicate, setDeduplicate] = useState(true);
   const [copyLabel, setCopyLabel] = useState("Copy");
+  const [viewCount, setViewCount] = useState(null);
+  const [viewCountStatus, setViewCountStatus] = useState("idle");
   const downloadRef = useRef(null);
 
   const result = useMemo(
@@ -242,6 +244,28 @@ export default function CsvMerger() {
     URL.revokeObjectURL(url);
   }
 
+  async function revealViewCount() {
+    if (viewCountStatus === "loading" || viewCount !== null) {
+      return;
+    }
+
+    setViewCountStatus("loading");
+
+    try {
+      const response = await fetch("/api/views/public");
+
+      if (!response.ok) {
+        throw new Error("Failed to load view count");
+      }
+
+      const data = await response.json();
+      setViewCount(data.totalViews ?? 0);
+      setViewCountStatus("ready");
+    } catch {
+      setViewCountStatus("error");
+    }
+  }
+
   return (
     <>
       <nav className="navbar">
@@ -267,14 +291,30 @@ export default function CsvMerger() {
 
       <div className="page-shell csv-shell">
         <div className="csv-workspace">
-          <aside className="csv-character" aria-hidden="true">
-            <Image
-              src="/2b-standing-bg-removed-flipped.gif"
-              alt=""
-              width={260}
-              height={360}
-              unoptimized
-            />
+          <aside className="csv-character">
+            <button
+              aria-label="Reveal site view count"
+              className="csv-counter-trigger"
+              onClick={revealViewCount}
+              onFocus={revealViewCount}
+              onMouseEnter={revealViewCount}
+              type="button"
+            >
+              <Image
+                src="/2b-standing-bg-removed-flipped.gif"
+                alt=""
+                width={260}
+                height={360}
+                unoptimized
+              />
+              <span className="csv-view-counter" role="status">
+                {viewCountStatus === "error"
+                  ? "Signal lost"
+                  : viewCount === null
+                    ? "Counting..."
+                    : `${viewCount.toLocaleString()} views`}
+              </span>
+            </button>
           </aside>
 
           <main>

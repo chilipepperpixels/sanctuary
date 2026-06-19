@@ -954,12 +954,55 @@ h3 {
   padding-top: 92px;
 }
 
-.csv-character img {
+.csv-counter-trigger {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: help;
+}
+
+.csv-counter-trigger img {
   width: min(100%, 260px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 18px rgba(255, 43, 214, 0.26))
     drop-shadow(0 0 24px rgba(37, 215, 255, 0.18));
+}
+
+.csv-view-counter {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  min-width: 128px;
+  padding: 8px 10px;
+  border: 1px solid rgba(37, 215, 255, 0.48);
+  border-radius: 6px;
+  background: rgba(5, 3, 10, 0.88);
+  color: #f8edff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: var(--glow-blue);
+  box-shadow:
+    0 0 22px rgba(37, 215, 255, 0.18),
+    0 14px 28px rgba(0, 0, 0, 0.36);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.csv-counter-trigger:hover .csv-view-counter,
+.csv-counter-trigger:focus-visible .csv-view-counter {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .csv-header {
@@ -1033,7 +1076,9 @@ h3 {
   border-radius: 6px;
   background: rgba(4, 3, 12, 0.86);
   color: #f8edff;
-  font: 0.88rem / 1.45 var(--font-geist-mono), monospace;
+  font:
+    0.88rem / 1.45 var(--font-geist-mono),
+    monospace;
   outline: none;
   box-shadow: inset 0 0 18px rgba(155, 92, 255, 0.08);
 }
@@ -1165,7 +1210,13 @@ h3 {
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 28px 28px;
-  mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
 }
 
 .csv-info-portrait,
@@ -1294,7 +1345,7 @@ h3 {
     padding-top: 0;
   }
 
-  .csv-character img {
+  .csv-counter-trigger img {
     width: min(68vw, 220px);
   }
 
