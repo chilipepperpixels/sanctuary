@@ -310,6 +310,7 @@ export default function Projects() {
                 </div>
               </div>
             </section>
+
           </div>
         </div>
       </main>
