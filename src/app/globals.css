@@ -1523,24 +1523,22 @@ h3 {
 }
 
 .discord-lookup-workspace {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(190px, 320px) minmax(0, 760px);
-  gap: clamp(18px, 4vw, 42px);
-  align-items: start;
-  justify-content: center;
+  justify-items: center;
 }
 
 .discord-lookup-inspector {
-  position: sticky;
-  top: var(--nav-sticky-clearance);
+  position: absolute;
+  top: 94px;
+  right: calc(50% + 400px);
   display: grid;
-  justify-items: end;
-  padding-top: 74px;
+  justify-items: center;
   pointer-events: none;
 }
 
 .discord-lookup-inspector img {
-  width: min(100%, 320px);
+  width: clamp(210px, 18vw, 300px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 18px rgba(37, 215, 255, 0.2))
@@ -1550,6 +1548,7 @@ h3 {
 .discord-lookup-panel {
   display: grid;
   gap: 18px;
+  width: min(100%, 760px);
   padding: 20px;
   border: 1px solid rgba(37, 215, 255, 0.34);
   border-radius: 8px;
@@ -1712,14 +1711,10 @@ h3 {
 }
 
 @media (max-width: 640px) {
-  .discord-lookup-workspace {
-    grid-template-columns: 1fr;
-  }
-
   .discord-lookup-inspector {
     position: static;
     justify-items: center;
-    padding-top: 0;
+    margin-bottom: 10px;
   }
 
   .discord-lookup-inspector img {
