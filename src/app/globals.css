@@ -1530,15 +1530,15 @@ h3 {
 
 .discord-lookup-inspector {
   position: absolute;
-  top: 94px;
-  right: calc(50% + 400px);
+  top: 70px;
+  right: calc(50% + 330px);
   display: grid;
   justify-items: center;
   pointer-events: none;
 }
 
 .discord-lookup-inspector img {
-  width: clamp(210px, 18vw, 300px);
+  width: clamp(300px, 28vw, 480px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 18px rgba(37, 215, 255, 0.2))
