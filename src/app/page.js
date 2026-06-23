@@ -28,6 +28,7 @@ export default function Home() {
           <Link href="/osrs">OSRS Stats</Link>
           <Link href="/calendar">Calendar</Link>
           <Link href="/csvmerger">CSV Merger</Link>
+          <Link href="/discord-lookup">Discord Lookup</Link>
         </div>
       </nav>
 

@@ -1494,3 +1494,80 @@ h3 {
   background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   transform: translateY(-2px);
 }
+
+
+.discord-lookup-shell {
+  width: min(100% - 32px, 760px);
+  margin: 0 auto 60px;
+}
+
+.discord-lookup-panel {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid rgba(37, 215, 255, 0.34);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(20, 11, 42, 0.94), rgba(5, 3, 12, 0.98)),
+    var(--panel);
+  box-shadow:
+    0 0 0 1px rgba(255, 43, 214, 0.08),
+    0 0 32px rgba(37, 215, 255, 0.12),
+    0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+.discord-lookup-panel h1 {
+  margin: 0;
+}
+
+.discord-lookup-field {
+  display: grid;
+  gap: 8px;
+  color: #f2eaff;
+  font-weight: 800;
+}
+
+.discord-lookup-field input {
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid rgba(155, 92, 255, 0.34);
+  border-radius: 6px;
+  background: rgba(4, 3, 12, 0.86);
+  color: #f8edff;
+  font: 0.95rem var(--font-geist-mono), monospace;
+  outline: none;
+}
+
+.discord-lookup-field input:focus {
+  border-color: var(--neon-blue);
+  box-shadow: var(--glow-blue);
+}
+
+.discord-lookup-error {
+  margin: 0;
+  color: #ff9fcf;
+}
+
+.discord-lookup-result {
+  display: grid;
+  gap: 10px;
+}
+
+.discord-lookup-result div {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid rgba(155, 92, 255, 0.28);
+  border-radius: 6px;
+  background: rgba(18, 8, 35, 0.78);
+}
+
+.discord-lookup-result span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.discord-lookup-result strong {
+  overflow-wrap: anywhere;
+}
