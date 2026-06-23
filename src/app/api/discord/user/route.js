@@ -18,12 +18,31 @@ const BADGES = [
 
 function getAvatarUrl(user) {
     if (!user.avatar) {
-        return null;
+        return getDefaultAvatarUrl(user);
     }
 
     const extension = user.avatar.startsWith("a_") ? "gif" : "png";
 
     return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${extension}?size=256`;
+}
+
+function getDefaultAvatarUrl(user) {
+    const avatarIndex =
+        user.discriminator && user.discriminator !== "0"
+            ? Number(user.discriminator) % 5
+            : Number((BigInt(user.id) >> 22n) % 6n);
+
+    return `https://cdn.discordapp.com/embed/avatars/${avatarIndex}.png`;
+}
+
+function getBannerUrl(user) {
+    if (!user.banner) {
+        return null;
+    }
+
+    const extension = user.banner.startsWith("a_") ? "gif" : "png";
+
+    return `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.${extension}?size=512`;
 }
 
 function getBadges(publicFlags = 0) {
@@ -70,6 +89,8 @@ export async function GET(request) {
         username: user.username,
         globalName: user.global_name,
         avatarUrl: getAvatarUrl(user),
+        bannerUrl: getBannerUrl(user),
+        accentColor: user.accent_color,
         bot: Boolean(user.bot),
         publicFlags: user.public_flags ?? 0,
         badges: getBadges(user.public_flags ?? 0),

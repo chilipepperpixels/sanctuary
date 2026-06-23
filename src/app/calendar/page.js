@@ -43,6 +43,14 @@ export default function Calendar() {
           >
             CSV Merger
           </Link>
+          <Link
+            href="/discord-lookup"
+            style={{
+              color: pathname === "/discord-lookup" ? "#f41ee9" : "inherit",
+            }}
+          >
+            Discord Lookup
+          </Link>
         </div>
       </nav>
       <div className="page-shell">

@@ -1548,6 +1548,90 @@ h3 {
   color: #ff9fcf;
 }
 
+.discord-profile-card {
+  overflow: hidden;
+  border: 1px solid rgba(155, 92, 255, 0.34);
+  border-radius: 8px;
+  background: #0c0a12;
+  box-shadow: 0 0 30px rgba(155, 92, 255, 0.13);
+}
+
+.discord-profile-banner {
+  display: block;
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+  background:
+    linear-gradient(135deg, rgba(255, 43, 214, 0.34), transparent 42%),
+    linear-gradient(135deg, #29072f, #09072c 55%, #04172e);
+}
+
+.discord-profile-banner-fallback {
+  background:
+    linear-gradient(135deg, rgba(255, 43, 214, 0.34), transparent 42%),
+    linear-gradient(135deg, #29072f, #09072c 55%, #04172e);
+}
+
+.discord-profile-main {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  align-items: end;
+  padding: 0 18px 18px;
+  margin-top: -42px;
+}
+
+.discord-profile-avatar {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border: 6px solid #0c0a12;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1e1f22;
+  box-shadow: 0 0 22px rgba(255, 43, 214, 0.35);
+}
+
+.discord-profile-main h2,
+.discord-profile-main p {
+  margin: 0;
+}
+
+.discord-profile-main h2 {
+  color: #fff;
+  line-height: 1.12;
+  text-shadow: 0 0 18px rgba(255, 43, 214, 0.26);
+}
+
+.discord-profile-username {
+  color: var(--muted);
+}
+
+.discord-avatar-download {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  margin-top: 10px;
+  padding: 0 12px;
+  border: 1px solid rgba(37, 215, 255, 0.34);
+  border-radius: 6px;
+  background: rgba(8, 7, 17, 0.78);
+  color: #f2eaff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.discord-avatar-download:hover,
+.discord-avatar-download:focus {
+  border-color: var(--neon-blue);
+  color: white;
+  box-shadow: var(--glow-blue);
+}
+
+.discord-profile-card > .tags {
+  padding: 0 18px 18px;
+}
+
 .discord-lookup-result {
   display: grid;
   gap: 10px;
@@ -1570,4 +1654,11 @@ h3 {
 
 .discord-lookup-result strong {
   overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .discord-profile-main {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
 }

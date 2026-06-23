@@ -128,6 +128,7 @@ export default function Osrs() {
           </Link>
           <Link href="/calendar">Calendar</Link>
           <Link href="/csvmerger">CSV Merger</Link>
+          <Link href="/discord-lookup">Discord Lookup</Link>
         </div>
       </nav>
 

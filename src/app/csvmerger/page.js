@@ -286,6 +286,7 @@ export default function CsvMerger() {
           <Link href="/csvmerger" style={{ color: "#f41ee9" }}>
             CSV Merger
           </Link>
+          <Link href="/discord-lookup">Discord Lookup</Link>
         </div>
       </nav>
 
