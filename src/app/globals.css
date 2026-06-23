@@ -1576,9 +1576,13 @@ h3 {
   display: grid;
   grid-template-columns: 96px minmax(0, 1fr);
   gap: 16px;
-  align-items: end;
+  align-items: start;
   padding: 0 18px 18px;
-  margin-top: -42px;
+}
+
+.discord-profile-main > a {
+  margin-bottom: -42px;
+  transform: translateY(-42px);
 }
 
 .discord-profile-avatar {
@@ -1595,6 +1599,11 @@ h3 {
 .discord-profile-main h2,
 .discord-profile-main p {
   margin: 0;
+}
+
+.discord-profile-copy {
+  min-width: 0;
+  padding-top: 14px;
 }
 
 .discord-profile-main h2 {
@@ -1660,5 +1669,9 @@ h3 {
   .discord-profile-main {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .discord-profile-copy {
+    padding-top: 0;
   }
 }

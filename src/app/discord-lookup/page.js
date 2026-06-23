@@ -204,7 +204,7 @@ export default function DiscordLookupPage() {
                   </a>
                 )}
 
-                <div>
+                <div className="discord-profile-copy">
                   <p className="project-eyebrow">
                     {profileStatus === "loading"
                       ? "Loading Discord profile"
