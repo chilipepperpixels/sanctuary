@@ -152,7 +152,12 @@ export default function DiscordLookupPage() {
       </nav>
 
       <main className="discord-lookup-shell">
-        <section className="discord-lookup-panel">
+        <div className="discord-lookup-workspace">
+          <aside className="discord-lookup-inspector" aria-hidden="true">
+            <img src="/inspector2b.png" alt="" />
+          </aside>
+
+          <section className="discord-lookup-panel">
           <p className="project-eyebrow">Discord Lookup</p>
           <h1>Snowflake Inspector</h1>
 
@@ -280,39 +285,8 @@ export default function DiscordLookupPage() {
               </div>
             </div>
           )}
-        </section>
-
-        <section
-          className="csv-info-card discord-info-card"
-          aria-labelledby="discord-info-title"
-        >
-          <div className="csv-info-portrait discord-info-portrait">
-            <img src="/inspector2b.png" alt="Inspector 2B with a magnifier" />
-          </div>
-
-          <div className="csv-info-copy">
-            <p className="project-eyebrow">Pepper utility</p>
-            <h2 id="discord-info-title">Snowflake Inspector</h2>
-            <p>
-              Paste a Discord ID and let the little detective do the boring
-              work: account age, exact creation time, Discord timestamp codes,
-              avatar, banner, and public badges. Built for those moments where
-              a random snowflake shows up and your brain immediately goes,
-              alright, but when were you born?
-            </p>
-
-            <div className="csv-info-tags" aria-label="Lookup capabilities">
-              <span>Snowflakes</span>
-              <span>Profiles</span>
-              <span>Badges</span>
-              <span>Timestamps</span>
-            </div>
-
-            <Link className="discord-info-link" href="/projects">
-              Back to Projects
-            </Link>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
     </>
   );

@@ -1293,29 +1293,11 @@ h3 {
   box-shadow: inset 0 0 14px rgba(255, 184, 77, 0.1);
 }
 
-.discord-info-card {
-  border-color: rgba(37, 215, 255, 0.48);
-  background:
-    linear-gradient(135deg, rgba(37, 215, 255, 0.14), transparent 34%),
-    linear-gradient(180deg, rgba(23, 11, 48, 0.96), rgba(5, 3, 12, 0.98));
-}
-
-.discord-info-portrait {
-  border-color: rgba(37, 215, 255, 0.46);
-}
-
-.discord-info-portrait img {
-  object-fit: contain;
-  background: radial-gradient(circle at center, rgba(37, 215, 255, 0.14), #080711);
-}
-
-.discord-info-link {
+.project-tool-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  justify-self: start;
   min-height: 40px;
-  margin-top: 4px;
   padding: 0 14px;
   border: 1px solid rgba(37, 215, 255, 0.38);
   border-radius: 6px;
@@ -1325,8 +1307,8 @@ h3 {
   text-decoration: none;
 }
 
-.discord-info-link:hover,
-.discord-info-link:focus {
+.project-tool-link:hover,
+.project-tool-link:focus {
   border-color: var(--neon-blue);
   color: white;
   box-shadow: var(--glow-blue);
@@ -1536,8 +1518,33 @@ h3 {
 
 
 .discord-lookup-shell {
-  width: min(100% - 32px, 760px);
+  width: min(100% - 32px, 1120px);
   margin: 0 auto 60px;
+}
+
+.discord-lookup-workspace {
+  display: grid;
+  grid-template-columns: minmax(190px, 320px) minmax(0, 760px);
+  gap: clamp(18px, 4vw, 42px);
+  align-items: start;
+  justify-content: center;
+}
+
+.discord-lookup-inspector {
+  position: sticky;
+  top: var(--nav-sticky-clearance);
+  display: grid;
+  justify-items: end;
+  padding-top: 74px;
+  pointer-events: none;
+}
+
+.discord-lookup-inspector img {
+  width: min(100%, 320px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(37, 215, 255, 0.2))
+    drop-shadow(0 0 22px rgba(255, 43, 214, 0.16));
 }
 
 .discord-lookup-panel {
@@ -1705,6 +1712,20 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  .discord-lookup-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .discord-lookup-inspector {
+    position: static;
+    justify-items: center;
+    padding-top: 0;
+  }
+
+  .discord-lookup-inspector img {
+    width: min(72vw, 240px);
+  }
+
   .discord-profile-main {
     grid-template-columns: 1fr;
     align-items: start;

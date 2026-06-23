@@ -10,6 +10,7 @@ const WAGO_REPO_LINK =
 const PROJECT_SECTIONS = [
   { id: "form-to-discord", label: "Form to Discord" },
   { id: "dealersette", label: "Discord Bot" },
+  { id: "discord-lookup", label: "Discord Lookup" },
 ];
 
 export default function Projects() {
@@ -307,6 +308,67 @@ export default function Projects() {
                     <img src="/GitHub_Invertocat_White.png" alt="" />
                     <span>GitHub</span>
                   </a>
+                </div>
+              </div>
+            </section>
+
+            <section
+              className="project-section"
+              id="discord-lookup"
+              aria-labelledby="discord-lookup-title"
+            >
+              <div className="project-card">
+                <div className="project-card-media">
+                  <img
+                    src="/snowflaketowebsite.png"
+                    alt="Discord snowflake lookup tool"
+                  />
+                </div>
+
+                <div className="project-card-body">
+                  <p className="project-eyebrow">Discord utility</p>
+                  <h2 id="discord-lookup-title">Discord Lookup</h2>
+
+                  <p>
+                    A snowflake inspector for when someone drops a Discord ID
+                    and curiosity immediately starts chewing through the walls.
+                    Paste the ID, decode the creation date, pull the public
+                    profile, and check avatar, banner, badges, and Discord
+                    timestamp formats in one tidy little box.
+                  </p>
+
+                  <div className="project-highlights">
+                    <span>Snowflake creation dates</span>
+                    <span>Avatar, banner, and public badges</span>
+                    <span>Discord-ready timestamps</span>
+                  </div>
+
+                  <div className="tags">
+                    <span>Next.js</span>
+                    <span>Discord API</span>
+                    <span>Profile Lookup</span>
+                    <span>Utility Tool</span>
+                  </div>
+
+                  <div className="links project-links">
+                    <Link className="project-tool-link" href="/discord-lookup">
+                      Open tool
+                    </Link>
+                    <a
+                      href="https://ko-fi.com/chilipepperpixels"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src="/kofi_logo.png" alt="Ko-fi" />
+                    </a>
+                    <a
+                      href="https://github.com/chilipepperpixels"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src="/GitHub_Invertocat_White.png" alt="GitHub" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </section>
