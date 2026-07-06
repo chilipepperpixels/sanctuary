@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const MAIN_USERNAME = "Bowosette";
@@ -25,10 +24,33 @@ async function loadOsrsStats(username, type = "normal") {
   return res.json();
 }
 
-function OsrsPanel({ data, title, combatLevel }) {
+function skillLevel(stats, name) {
+  return stats.find((skill) => skill.name === name)?.level ?? 1;
+}
+
+function computeCombatLevel(stats) {
+  if (!stats || stats.length === 0) {
+    return null;
+  }
+
+  const base =
+    0.25 *
+    (skillLevel(stats, "Defence") +
+      skillLevel(stats, "Hitpoints") +
+      Math.floor(skillLevel(stats, "Prayer") / 2));
+  const melee =
+    0.325 * (skillLevel(stats, "Attack") + skillLevel(stats, "Strength"));
+  const ranged = 0.325 * Math.floor(skillLevel(stats, "Ranged") * 1.5);
+  const magic = 0.325 * Math.floor(skillLevel(stats, "Magic") * 1.5);
+
+  return Math.floor(base + Math.max(melee, ranged, magic));
+}
+
+function OsrsPanel({ data, title }) {
   const stats = data.stats || [];
   const overall = stats[0];
   const skills = stats.slice(1);
+  const combatLevel = computeCombatLevel(stats);
 
   return (
     <section className="osrs-panel">
@@ -60,7 +82,7 @@ function OsrsPanel({ data, title, combatLevel }) {
                 <span className="osrs-skill-name">{skill.name}</span>
                 <strong>{skill.level.toLocaleString()}</strong>
                 <span className="osrs-skill-rank">
-                  #{skill.rank.toLocaleString()}
+                  {skill.rank > 0 ? `#${skill.rank.toLocaleString()}` : "—"}
                 </span>
               </div>
             ))}
@@ -69,7 +91,7 @@ function OsrsPanel({ data, title, combatLevel }) {
           <div className="osrs-footer-stats">
             <div>
               <span>Combat</span>
-              <strong>{combatLevel}</strong>
+              <strong>{combatLevel ?? "?"}</strong>
             </div>
             <div>
               <span>Total</span>
@@ -115,33 +137,15 @@ export default function Osrs() {
   }, []);
 
   return (
-    <>
-      <nav className="navbar">
-        <Link href="/" className="brand-link">
-          <img src="/2bpepperlogo.png" alt="Pepper's Sanctuary" />
-        </Link>
-        <div className="navbar-links">
-          <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/osrs" style={{ color: "#f41ee9" }}>
-            OSRS Stats
-          </Link>
-          <Link href="/calendar">Calendar</Link>
-          <Link href="/csvmerger">CSV Merger</Link>
-          <Link href="/discord-lookup">Discord Lookup</Link>
+    <div className="page-shell osrs-shell">
+      <main>
+        <h1>OSRS Stats</h1>
+
+        <div className="osrs-panels">
+          <OsrsPanel data={mainData} title="Main" />
+          <OsrsPanel data={ironmanData} title="Ironman" />
         </div>
-      </nav>
-
-      <div className="page-shell osrs-shell">
-        <main>
-          <h1>OSRS Stats</h1>
-
-          <div className="osrs-panels">
-            <OsrsPanel data={mainData} title="Main" combatLevel={126} />
-            <OsrsPanel data={ironmanData} title="Ironman" combatLevel="?" />
-          </div>
-        </main>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

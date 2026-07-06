@@ -69,12 +69,35 @@ export async function GET(request) {
         );
     }
 
-    const response = await fetch(`https://discord.com/api/v10/users/${id}`, {
-        headers: {
-            Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-        },
-        cache: "no-store",
-    });
+    let response;
+
+    try {
+        response = await fetch(`https://discord.com/api/v10/users/${id}`, {
+            headers: {
+                Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+            },
+            cache: "no-store",
+        });
+    } catch {
+        return NextResponse.json(
+            { error: "Could not reach Discord." },
+            { status: 502 },
+        );
+    }
+
+    if (response.status === 404) {
+        return NextResponse.json(
+            { error: "No Discord user found with that ID." },
+            { status: 404 },
+        );
+    }
+
+    if (response.status === 429) {
+        return NextResponse.json(
+            { error: "Rate limited by Discord — try again in a moment." },
+            { status: 429 },
+        );
+    }
 
     if (!response.ok) {
         return NextResponse.json(

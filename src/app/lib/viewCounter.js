@@ -28,12 +28,25 @@ function key(...parts) {
   return [KEY_PREFIX, ...parts].join(":");
 }
 
+// Only real pages get tracked. Without this, anyone can POST arbitrary
+// path strings and each one permanently creates several Redis keys.
+const KNOWN_PATHS = new Set([
+  "/",
+  "/projects",
+  "/osrs",
+  "/calendar",
+  "/csvmerger",
+  "/discord-lookup",
+]);
+
 function cleanPath(input) {
-  if (typeof input !== "string" || !input.startsWith("/")) {
-    return "/";
+  if (typeof input !== "string") {
+    return null;
   }
 
-  return input.slice(0, 160);
+  const pathname = input.split("?")[0].replace(/\/+$/, "") || "/";
+
+  return KNOWN_PATHS.has(pathname) ? pathname : null;
 }
 
 function pathKey(pathname, suffix) {
@@ -59,8 +72,13 @@ export async function recordView({ pagePath, visitorId }) {
     return { ok: false, configured: false, totalViews: 0 };
   }
 
-  const now = new Date().toISOString();
   const pathname = cleanPath(pagePath);
+
+  if (!pathname) {
+    return { ok: false, configured: true, totalViews: 0 };
+  }
+
+  const now = new Date().toISOString();
   const visitorHash = hashVisitor(visitorId);
 
   const [totalViews, pathViews] = await Promise.all([

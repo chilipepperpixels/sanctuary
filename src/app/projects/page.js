@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import DiscordWidget from "../components/DiscordWidget";
 
 const WAGO_LINK = "https://wago.io/wlTg_Zyue";
 const WAGO_REPO_LINK =
@@ -14,59 +12,8 @@ const PROJECT_SECTIONS = [
 ];
 
 export default function Projects() {
-  const pathname = usePathname();
-
   return (
-    <>
-      <nav className="navbar">
-        <Link href="/" className="brand-link">
-          <img src="/2bpepperlogo.png" alt="Pepper's Sanctuary" />
-        </Link>
-        <div className="navbar-links">
-          <Link
-            href="/"
-            style={{ color: pathname === "/" ? "#f41ee9" : "inherit" }}
-          >
-            Home
-          </Link>
-          <Link
-            href="/projects"
-            style={{ color: pathname === "/projects" ? "#f41ee9" : "inherit" }}
-          >
-            Projects
-          </Link>
-          <Link
-            href="/osrs"
-            style={{ color: pathname === "/osrs" ? "#f41ee9" : "inherit" }}
-          >
-            OSRS Stats
-          </Link>
-          <Link
-            href="/calendar"
-            style={{ color: pathname === "/calendar" ? "#f41ee9" : "inherit" }}
-          >
-            Calendar
-          </Link>
-          <Link
-            href="/csvmerger"
-            style={{
-              color: pathname === "/csvmerger" ? "#f41ee9" : "inherit",
-            }}
-          >
-            CSV Merger
-          </Link>
-          <Link
-            href="/discord-lookup"
-            style={{
-              color: pathname === "/discord-lookup" ? "#f41ee9" : "inherit",
-            }}
-          >
-            Discord Lookup
-          </Link>
-        </div>
-      </nav>
-
-      <main className="page-shell projects-shell">
+    <main className="page-shell projects-shell">
         <div className="projects-docs-layout">
           <aside className="project-toc" aria-label="Project contents">
             <p>Contents</p>
@@ -219,29 +166,7 @@ export default function Projects() {
                     >
                       <img src="/GitHub_Invertocat_White.png" alt="GitHub" />
                     </a>
-                    <span className="discord-widget-trigger">
-                      <a
-                        href="https://discord.gg/2t8u4UHanz"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          src="/Discord-Symbol-Blurple.png"
-                          alt="Support Discord Server"
-                        />
-                      </a>
-                      <span className="discord-widget-popover">
-                        <iframe
-                          src="https://discord.com/widget?id=1511547007918018721&theme=dark"
-                          width="350"
-                          height="500"
-                          allowTransparency="true"
-                          frameBorder="0"
-                          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                          title="Discord server widget"
-                        ></iframe>
-                      </span>
-                    </span>
+                    <DiscordWidget />
                   </div>
 
                   <div className="section">
@@ -375,7 +300,6 @@ export default function Projects() {
 
           </div>
         </div>
-      </main>
-    </>
+    </main>
   );
 }

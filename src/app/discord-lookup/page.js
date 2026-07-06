@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 const DISCORD_EPOCH = 1420070400000n;
@@ -74,7 +72,6 @@ function decodeSnowflake(value) {
 }
 
 export default function DiscordLookupPage() {
-  const pathname = usePathname();
   const [input, setInput] = useState("");
   const [profile, setProfile] = useState(null);
   const [profileStatus, setProfileStatus] = useState("idle");
@@ -82,13 +79,6 @@ export default function DiscordLookupPage() {
   const result = useMemo(() => decodeSnowflake(input), [input]);
 
   useEffect(() => {
-    if (!result) {
-      setProfile(null);
-      setProfileStatus("idle");
-      setProfileError("");
-      return;
-    }
-
     const controller = new AbortController();
 
     async function loadProfile() {
@@ -118,40 +108,27 @@ export default function DiscordLookupPage() {
       }
     }
 
-    loadProfile();
+    // Debounce so typing an ID doesn't fire a lookup per keystroke — every
+    // length from 17 to 20 digits is a plausible snowflake.
+    const timer = setTimeout(() => {
+      if (!result) {
+        setProfile(null);
+        setProfileStatus("idle");
+        setProfileError("");
+        return;
+      }
 
-    return () => controller.abort();
+      loadProfile();
+    }, result ? 300 : 0);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [result]);
 
   return (
-    <>
-      <nav className="navbar">
-        <Link href="/" className="brand-link">
-          <img src="/2bpepperlogo.png" alt="Pepper's Sanctuary" />
-        </Link>
-        <div className="navbar-links">
-          <Link
-            href="/"
-            style={{ color: pathname === "/" ? "#f41ee9" : "inherit" }}
-          >
-            Home
-          </Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/osrs">OSRS Stats</Link>
-          <Link href="/calendar">Calendar</Link>
-          <Link href="/csvmerger">CSV Merger</Link>
-          <Link
-            href="/discord-lookup"
-            style={{
-              color: pathname === "/discord-lookup" ? "#f41ee9" : "inherit",
-            }}
-          >
-            Discord Lookup
-          </Link>
-        </div>
-      </nav>
-
-      <main className="discord-lookup-shell">
+    <main className="discord-lookup-shell">
         <div className="discord-lookup-workspace">
           <aside className="discord-lookup-inspector" aria-hidden="true">
             <img src="/inspector2b.png" alt="" />
@@ -287,7 +264,6 @@ export default function DiscordLookupPage() {
           )}
           </section>
         </div>
-      </main>
-    </>
+    </main>
   );
 }

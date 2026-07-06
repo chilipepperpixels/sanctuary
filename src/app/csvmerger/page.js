@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
 
@@ -137,10 +136,15 @@ function normalizeRows(rows) {
     ]);
   }
 
-  return dataRows.map((row) => [
+  // No recognized header: treat rows positionally as [date, character, itemID].
+  // Only skip the first row when it looks like a header (letters in the date
+  // column) — a truly headerless file keeps all of its rows.
+  const positionalRows = /[a-z]/i.test(headers[0] || "") ? dataRows : rows;
+
+  return positionalRows.map((row) => [
     normalizeDate(row[0] || ""),
     normalizePlayerName(row[1] || ""),
-    row[1] || "",
+    row[2] || "",
     "0",
     "",
   ]);
@@ -267,30 +271,7 @@ export default function CsvMerger() {
   }
 
   return (
-    <>
-      <nav className="navbar">
-        <Link href="/" className="brand-link">
-          <Image
-            src="/2bpepperlogo.png"
-            alt="Pepper's Sanctuary"
-            width={300}
-            height={72}
-            priority
-          />
-        </Link>
-        <div className="navbar-links">
-          <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/osrs">OSRS Stats</Link>
-          <Link href="/calendar">Calendar</Link>
-          <Link href="/csvmerger" style={{ color: "#f41ee9" }}>
-            CSV Merger
-          </Link>
-          <Link href="/discord-lookup">Discord Lookup</Link>
-        </div>
-      </nav>
-
-      <div className="page-shell csv-shell">
+    <div className="page-shell csv-shell">
         <div className="csv-workspace">
           <aside className="csv-character">
             <button
@@ -434,7 +415,6 @@ export default function CsvMerger() {
             </section>
           </main>
         </div>
-      </div>
-    </>
+    </div>
   );
 }
