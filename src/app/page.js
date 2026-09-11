@@ -34,7 +34,7 @@ export default function Home() {
       <section style={{ marginBottom: "60px" }}>
         <h2>Welcome to my digital lair</h2>
         <p>
-          Projects, experiments, and OSRS knowledge dumps collected in one
+          Projects, experiments, and other shenanigans in one
           place.
         </p>
       </section>
@@ -51,12 +51,11 @@ export default function Home() {
       <section id="about" style={{ marginBottom: "60px" }}>
         <h2>🧠 About</h2>
         <p>
-          This is my personal hub for dev projects and RuneScape knowledge
-          dumping.
+          This is my personal hub for dev projects and other fun stuff.
         </p>
       </section>
 
-      <span hidden data-secret="Traps are not gay! nya~ UwU"></span>
+      <span hidden data-secret="You found my secret! :3 "></span>
     </div>
   );
 }
