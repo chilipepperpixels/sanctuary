@@ -34,6 +34,14 @@ export default function Projects() {
               aria-labelledby="goonsette-title"
             >
               <div className="project-card bot-project-card">
+                <div className="project-card-media">
+                  <img
+                    src="/goonsette-discord-bot.png"
+                    alt="Goonsette Discord bot icon featuring a night elf drummer"
+                    width={1254}
+                    height={1254}
+                  />
+                </div>
                 <div className="project-card-body">
                   <p className="project-eyebrow">Discord bot project</p>
                   <h2 id="goonsette-title">Goonsette</h2>
@@ -60,19 +68,18 @@ export default function Projects() {
 
                   <div className="links project-links">
                     <a
-                      className="project-tool-link"
-                      href="https://github.com/chilipepperpixels/Goonsette-Discord-Bot"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View on GitHub
-                    </a>
-                    <a
                       href="https://ko-fi.com/chilipepperpixels"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <img src="/kofi_logo.png" alt="Ko-fi" />
+                    </a>
+                    <a
+                      href="https://github.com/chilipepperpixels/Goonsette-Discord-Bot"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src="/GitHub_Invertocat_White.png" alt="GitHub" />
                     </a>
                   </div>
                 </div>
