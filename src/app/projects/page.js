@@ -6,6 +6,7 @@ const WAGO_REPO_LINK =
   "https://github.com/chilipepperpixels/Bad-Items-Equipped-WeakAura";
 
 const PROJECT_SECTIONS = [
+  { id: "goonsette", label: "Goonsette" },
   { id: "form-to-discord", label: "Form to Discord" },
   { id: "dealersette", label: "Discord Bot" },
   { id: "discord-lookup", label: "Discord Lookup" },
@@ -27,6 +28,57 @@ export default function Projects() {
           </aside>
 
           <div className="projects-content">
+            <section
+              className="project-section"
+              id="goonsette"
+              aria-labelledby="goonsette-title"
+            >
+              <div className="project-card bot-project-card">
+                <div className="project-card-body">
+                  <p className="project-eyebrow">Discord bot project</p>
+                  <h2 id="goonsette-title">Goonsette</h2>
+
+                  <p>
+                    Guild officer chores, delegated. Goonsette posts RaiderHub
+                    info, creates private channels for new raiders, and lets
+                    officers update important guild links right from Discord.
+                    Less channel wrangling, more time to actually play the game.
+                  </p>
+
+                  <div className="project-highlights">
+                    <span>Private RaiderHub channels and member access</span>
+                    <span>Officer-editable links and reusable info embeds</span>
+                    <span>Saved link updates that survive Railway redeploys</span>
+                  </div>
+
+                  <div className="tags">
+                    <span>JavaScript</span>
+                    <span>Discord.js</span>
+                    <span>Railway</span>
+                    <span>Guild Automation</span>
+                  </div>
+
+                  <div className="links project-links">
+                    <a
+                      className="project-tool-link"
+                      href="https://github.com/chilipepperpixels/Goonsette-Discord-Bot"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on GitHub
+                    </a>
+                    <a
+                      href="https://ko-fi.com/chilipepperpixels"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src="/kofi_logo.png" alt="Ko-fi" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <section
               className="project-section"
               id="form-to-discord"
